@@ -1,0 +1,116 @@
+/**
+ * Public-facing CSS for the Guest Post Frontend Submitter plugin.
+ */
+
+/* Form container */
+.gpfs-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Form fields */
+.gpfs-form-field {
+    margin-bottom: 20px;
+}
+
+.gpfs-form-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.gpfs-form-field input[type="text"],
+.gpfs-form-field input[type="email"],
+.gpfs-form-field textarea,
+.gpfs-form-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.gpfs-form-field textarea {
+    min-height: 150px;
+}
+
+.gpfs-form-field input[type="file"] {
+    padding: 10px 0;
+}
+
+.gpfs-form-field input[type="submit"] {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.gpfs-form-field input[type="submit"]:hover {
+    background: #005177;
+}
+
+/* Required field indicator */
+.gpfs-form-field .required {
+    color: #d63638;
+}
+
+/* Success and error messages */
+.gpfs-success-message,
+.gpfs-error-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.gpfs-success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.gpfs-error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Honeypot field - hide from users but visible to screen readers */
+.gpfs-honeypot {
+    position: absolute;
+    left: -9999px;
+}
+
+/* WordPress Editor Styling */
+.wp-editor-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.wp-editor-tabs {
+    margin-bottom: 0;
+}
+
+.mce-toolbar .mce-btn button {
+    padding: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gpfs-form {
+        padding: 15px;
+    }
+    
+    .gpfs-form-field input[type="submit"] {
+        width: 100%;
+    }
+}
