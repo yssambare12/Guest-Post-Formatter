@@ -63,6 +63,40 @@ if (!defined('WPINC')) {
                         <td><code>[guest_post_form show_featured_image="no"]</code></td>
                     </tr>
                 </table>
+                
+                <h3><?php _e('Form Fields', 'guest-post-frontend-submitter'); ?></h3>
+                <p><?php _e('The form includes the following fields:', 'guest-post-frontend-submitter'); ?></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                    <li><?php _e('Post Title (required)', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Post Content with rich text editor (required)', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Author Name (required)', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Author Email (required)', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Author Bio (optional)', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Post Category (required)', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Excerpt (optional)', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Featured Image (optional)', 'guest-post-frontend-submitter'); ?></li>
+                </ul>
+                
+                <h3><?php _e('Post Submission Process', 'guest-post-frontend-submitter'); ?></h3>
+                <p><?php _e('When a user submits a post:', 'guest-post-frontend-submitter'); ?></p>
+                <ol style="list-style-type: decimal; margin-left: 20px;">
+                    <li><?php _e('The form validates all required fields', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('The post is saved as a draft', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Author information is saved as post metadata', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('The post is assigned to the selected category', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('An email notification is sent to the admin with approve/reject links', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('A success message is displayed to the user', 'guest-post-frontend-submitter'); ?></li>
+                </ol>
+                
+                <h3><?php _e('Email Notifications', 'guest-post-frontend-submitter'); ?></h3>
+                <p><?php _e('When a new guest post is submitted, an email notification is sent with:', 'guest-post-frontend-submitter'); ?></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                    <li><?php _e('Post title and submission date', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Author name and email', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('Link to edit the post in the admin area', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('One-click "Approve" link to publish the post', 'guest-post-frontend-submitter'); ?></li>
+                    <li><?php _e('One-click "Reject" link to trash the post', 'guest-post-frontend-submitter'); ?></li>
+                </ul>
             </div>
         </div>
         

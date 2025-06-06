@@ -16,16 +16,20 @@ class GPFS_Shortcode {
      */
     public function register_shortcode() {
         add_shortcode('guest_post_form', array($this, 'render_form'));
+        
+        // Register the React form shortcode
+        add_shortcode('guest_post_react_form', array($this, 'render_react_form'));
     }
 
     /**
-     * Render the submission form.
+     * Render the form.
      *
      * @since    1.0.0
-     * @param    array    $atts    Shortcode attributes.
-     * @return   string            The HTML output for the form.
+     * @param    array    $atts       Shortcode attributes.
+     * @param    string   $content    Shortcode content.
+     * @return   string               HTML output.
      */
-    public function render_form($atts) {
+    public function render_form($atts, $content = null) {
         // Extract shortcode attributes
         $atts = shortcode_atts(array(
             'title' => __('Submit a Guest Post', 'guest-post-frontend-submitter'),
@@ -33,187 +37,170 @@ class GPFS_Shortcode {
             'button_text' => __('Submit Post', 'guest-post-frontend-submitter'),
             'show_excerpt' => 'yes',
             'show_featured_image' => 'yes',
-            'redirect' => '',
         ), $atts, 'guest_post_form');
         
-        // Check if user is logged in (if required)
+        // Check if user is logged in and login is required
         $options = get_option('gpfs_options', array());
-        $require_login = isset($options['require_login']) ? $options['require_login'] : false;
+        $require_login = isset($options['require_login']) ? $options['require_login'] : 0;
         
         if ($require_login && !is_user_logged_in()) {
-            return sprintf(
-                '<div class="gpfs-login-required">%s</div>',
-                __('You must be logged in to submit a post. Please <a href="%s">login</a> or <a href="%s">register</a>.', 'guest-post-frontend-submitter'),
-                wp_login_url(get_permalink()),
-                wp_registration_url()
-            );
+            return '<div class="gpfs-login-required">' . __('You must be logged in to submit a post.', 'guest-post-frontend-submitter') . ' <a href="' . wp_login_url(get_permalink()) . '">' . __('Log in', 'guest-post-frontend-submitter') . '</a></div>';
         }
         
         // Check for form submission status
-        $output = '';
-        
-        if (isset($_GET['gpfs_success']) && $_GET['gpfs_success'] == '1') {
-            $output .= sprintf(
-                '<div class="gpfs-success-message">%s</div>',
-                esc_html($atts['success_message'])
-            );
-        }
+        $form_success = isset($_GET['gpfs_success']) && $_GET['gpfs_success'] == '1';
+        $form_error = null;
         
         if (isset($_GET['gpfs_error'])) {
             $error_type = sanitize_text_field($_GET['gpfs_error']);
-            $error_message = $this->get_error_message($error_type);
-            
-            $output .= sprintf(
-                '<div class="gpfs-error-message">%s</div>',
-                esc_html($error_message)
-            );
+            $form_error = $this->get_error_message($error_type);
         }
         
-        // Start building the form
-        $output .= sprintf('<h3>%s</h3>', esc_html($atts['title']));
+        // Start output buffering
+        ob_start();
         
-        $output .= '<form id="gpfs-submission-form" class="gpfs-form" method="post" enctype="multipart/form-data">';
+        // Display success message if form was submitted successfully
+        if ($form_success) {
+            echo '<div class="gpfs-success-message">' . esc_html($atts['success_message']) . '</div>';
+        }
+        
+        // Display error message if there was an error
+        if ($form_error) {
+            echo '<div class="gpfs-error-message">' . $form_error . '</div>';
+        }
+        
+        // Start form
+        echo '<div class="gpfs-form-container">';
+        echo '<h3 class="gpfs-form-title">' . esc_html($atts['title']) . '</h3>';
+        echo '<form id="gpfs-submission-form" class="gpfs-form" method="post" enctype="multipart/form-data">';
         
         // Title field
-        $output .= '<div class="gpfs-form-field">';
-        $output .= '<label for="gpfs_title">' . __('Post Title', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
-        $output .= '<input type="text" id="gpfs_title" name="gpfs_title" required>';
-        $output .= '</div>';
+        echo '<div class="gpfs-form-field">';
+        echo '<label for="gpfs_title">' . __('Post Title', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
+        echo '<input type="text" id="gpfs_title" name="gpfs_title" required>';
+        echo '</div>';
         
-        // Content field with rich text editor
-        $output .= '<div class="gpfs-form-field">';
-        $output .= '<label for="gpfs_content">' . __('Post Content', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
+        // Content field
+        echo '<div class="gpfs-form-field">';
+        echo '<label for="gpfs_content">' . __('Post Content', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
         
-        // Initialize WordPress editor
-        ob_start();
-        $editor_settings = array(
-            'textarea_name' => 'gpfs_content',
-            'textarea_rows' => 10,
-            'media_buttons' => false,
-            'teeny'         => true,
-            'quicktags'     => true,
-        );
-        wp_editor('', 'gpfs_content', $editor_settings);
-        $editor_content = ob_get_clean();
-        $output .= $editor_content;
-        
-        $output .= '</div>';
-        
-        // Author Name field
-        $output .= '<div class="gpfs-form-field">';
-        $output .= '<label for="gpfs_author_name">' . __('Author Name', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
-        $output .= '<input type="text" id="gpfs_author_name" name="gpfs_author_name" required>';
-        $output .= '</div>';
-        
-        // Author Email field
-        $output .= '<div class="gpfs-form-field">';
-        $output .= '<label for="gpfs_author_email">' . __('Author Email', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
-        $output .= '<input type="email" id="gpfs_author_email" name="gpfs_author_email" required>';
-        $output .= '</div>';
-        
-        // Category dropdown
-        $output .= '<div class="gpfs-form-field">';
-        $output .= '<label for="gpfs_category">' . __('Post Category', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
-        
-        // Get all categories
-        $categories = get_categories(array(
-            'hide_empty' => false,
-            'orderby'    => 'name',
-            'order'      => 'ASC',
-        ));
-        
-        $output .= '<select id="gpfs_category" name="gpfs_category" required>';
-        $output .= '<option value="">' . __('Select a category', 'guest-post-frontend-submitter') . '</option>';
-        
-        foreach ($categories as $category) {
-            $output .= '<option value="' . esc_attr($category->term_id) . '">' . esc_html($category->name) . '</option>';
+        // Use WordPress editor if available
+        if (function_exists('wp_editor')) {
+            $editor_settings = array(
+                'textarea_name' => 'gpfs_content',
+                'textarea_rows' => 10,
+                'media_buttons' => false,
+                'teeny' => true,
+                'quicktags' => array('buttons' => 'strong,em,link,ul,ol,li,code'),
+            );
+            wp_editor('', 'gpfs_content', $editor_settings);
+        } else {
+            echo '<textarea id="gpfs_content" name="gpfs_content" rows="10" required></textarea>';
         }
         
-        $output .= '</select>';
-        $output .= '</div>';
+        echo '</div>';
+        
+        // Author Name field
+        echo '<div class="gpfs-form-field">';
+        echo '<label for="gpfs_author_name">' . __('Author Name', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
+        echo '<input type="text" id="gpfs_author_name" name="gpfs_author_name" required>';
+        echo '</div>';
+        
+        // Author Email field
+        echo '<div class="gpfs-form-field">';
+        echo '<label for="gpfs_author_email">' . __('Author Email', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
+        echo '<input type="email" id="gpfs_author_email" name="gpfs_author_email" required>';
+        echo '</div>';
+        
+        // Author Bio field
+        echo '<div class="gpfs-form-field">';
+        echo '<label for="gpfs_author_bio">' . __('Author Bio', 'guest-post-frontend-submitter') . '</label>';
+        echo '<textarea id="gpfs_author_bio" name="gpfs_author_bio" rows="4" placeholder="' . esc_attr__('Tell us about yourself (optional)', 'guest-post-frontend-submitter') . '"></textarea>';
+        echo '</div>';
+        
+        // Category dropdown
+        echo '<div class="gpfs-form-field">';
+        echo '<label for="gpfs_category">' . __('Post Category', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
+        
+        // Get categories
+        $categories = get_categories(array(
+            'hide_empty' => false,
+            'orderby' => 'name',
+            'order' => 'ASC',
+        ));
+        
+        echo '<select id="gpfs_category" name="gpfs_category" required>';
+        echo '<option value="">' . __('Select a category', 'guest-post-frontend-submitter') . '</option>';
+        
+        foreach ($categories as $category) {
+            echo '<option value="' . esc_attr($category->term_id) . '">' . esc_html($category->name) . '</option>';
+        }
+        
+        echo '</select>';
+        echo '</div>';
         
         // Excerpt field (optional)
         if ($atts['show_excerpt'] === 'yes') {
-            $output .= '<div class="gpfs-form-field">';
-            $output .= '<label for="gpfs_excerpt">' . __('Excerpt', 'guest-post-frontend-submitter') . '</label>';
-            $output .= '<textarea id="gpfs_excerpt" name="gpfs_excerpt" rows="3"></textarea>';
-            $output .= '</div>';
+            echo '<div class="gpfs-form-field">';
+            echo '<label for="gpfs_excerpt">' . __('Excerpt', 'guest-post-frontend-submitter') . '</label>';
+            echo '<textarea id="gpfs_excerpt" name="gpfs_excerpt" rows="3"></textarea>';
+            echo '</div>';
         }
         
         // Featured image field (optional)
         if ($atts['show_featured_image'] === 'yes') {
-            $output .= '<div class="gpfs-form-field">';
-            $output .= '<label for="gpfs_featured_image">' . __('Featured Image', 'guest-post-frontend-submitter') . '</label>';
-            $output .= '<input type="file" id="gpfs_featured_image" name="gpfs_featured_image" accept="image/*">';
-            $output .= '</div>';
+            echo '<div class="gpfs-form-field">';
+            echo '<label for="gpfs_featured_image">' . __('Featured Image', 'guest-post-frontend-submitter') . '</label>';
+            echo '<input type="file" id="gpfs_featured_image" name="gpfs_featured_image" accept="image/*">';
+            echo '<p class="gpfs-field-description">' . __('Upload an image to be used as the featured image for your post. Allowed formats: JPEG, PNG, GIF.', 'guest-post-frontend-submitter') . '</p>';
+            echo '<div id="gpfs-image-preview-container" class="gpfs-image-preview-container"></div>';
+            echo '</div>';
         }
         
-        // Add custom fields if configured
-        $custom_fields = isset($options['custom_fields']) ? $options['custom_fields'] : array();
+        // CAPTCHA field (if enabled)
+        $enable_captcha = isset($options['enable_captcha']) ? $options['enable_captcha'] : 1;
         
-        if (!empty($custom_fields)) {
-            foreach ($custom_fields as $field) {
-                $field_id = 'gpfs_cf_' . sanitize_key($field['name']);
-                $required = !empty($field['required']) ? ' <span class="required">*</span>' : '';
-                $required_attr = !empty($field['required']) ? ' required' : '';
-                
-                $output .= '<div class="gpfs-form-field">';
-                $output .= '<label for="' . esc_attr($field_id) . '">' . esc_html($field['label']) . $required . '</label>';
-                
-                switch ($field['type']) {
-                    case 'text':
-                        $output .= '<input type="text" id="' . esc_attr($field_id) . '" name="' . esc_attr($field_id) . '"' . $required_attr . '>';
-                        break;
-                    case 'textarea':
-                        $output .= '<textarea id="' . esc_attr($field_id) . '" name="' . esc_attr($field_id) . '" rows="3"' . $required_attr . '></textarea>';
-                        break;
-                    case 'select':
-                        $output .= '<select id="' . esc_attr($field_id) . '" name="' . esc_attr($field_id) . '"' . $required_attr . '>';
-                        $options = explode(',', $field['options']);
-                        foreach ($options as $option) {
-                            $option = trim($option);
-                            $output .= '<option value="' . esc_attr($option) . '">' . esc_html($option) . '</option>';
-                        }
-                        $output .= '</select>';
-                        break;
-                }
-                
-                $output .= '</div>';
+        if ($enable_captcha) {
+            // Generate CAPTCHA
+            $num1 = wp_rand(1, 10);
+            $num2 = wp_rand(1, 10);
+            $captcha_answer = $num1 + $num2;
+            
+            // Store the answer in a session
+            if (!session_id()) {
+                session_start();
             }
+            $_SESSION['gpfs_captcha_answer'] = $captcha_answer;
+            
+            echo '<div class="gpfs-form-field gpfs-captcha-field">';
+            echo '<label for="gpfs_captcha">' . __('Security Question', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
+            echo '<div class="gpfs-captcha-question">' . sprintf(__('What is %d + %d?', 'guest-post-frontend-submitter'), $num1, $num2) . '</div>';
+            echo '<input type="number" id="gpfs_captcha" name="gpfs_captcha" required>';
+            echo '</div>';
         }
         
         // Honeypot field to prevent spam
-        $output .= '<div class="gpfs-honeypot">';
-        $output .= '<input type="text" name="gpfs_website" value="" tabindex="-1" autocomplete="off">';
-        $output .= '</div>';
+        echo '<div class="gpfs-honeypot">';
+        echo '<input type="text" name="gpfs_website" tabindex="-1" autocomplete="off">';
+        echo '</div>';
         
-        // Nonce field for security
-        $output .= wp_nonce_field('gpfs_submit_post_nonce', 'gpfs_nonce', true, false);
+        // WordPress nonce field
+        wp_nonce_field('gpfs_submit_post_nonce', 'gpfs_nonce');
         
         // Submit button
-        $output .= '<div class="gpfs-form-field">';
-        $output .= '<input type="submit" name="gpfs_submit_post" value="' . esc_attr($atts['button_text']) . '">';
-        $output .= '</div>';
+        echo '<div class="gpfs-form-field">';
+        echo '<button type="submit" name="gpfs_submit_post" value="1" class="gpfs-submit-button">' . esc_html($atts['button_text']) . '</button>';
+        echo '</div>';
         
-        $output .= '</form>';
+        echo '</form>';
+        echo '</div>';
         
-        // Add script to initialize TinyMCE if it's not already initialized
-        $output .= '<script type="text/javascript">
-            jQuery(document).ready(function($) {
-                if (typeof tinyMCE !== "undefined") {
-                    tinyMCE.init({
-                        selector: "#gpfs_content",
-                        plugins: "lists link image",
-                        menubar: false,
-                        toolbar: "bold italic | bullist numlist | link"
-                    });
-                }
-            });
-        </script>';
+        // Get the buffered content
+        $output = ob_get_clean();
         
         return $output;
     }
-    
+
     /**
      * Get error message based on error type.
      *
@@ -231,8 +218,126 @@ class GPFS_Shortcode {
                 return __('Your submission was flagged as spam. Please try again.', 'guest-post-frontend-submitter');
             case 'email':
                 return __('Please enter a valid email address.', 'guest-post-frontend-submitter');
+            case 'captcha_missing':
+                return __('Please answer the security question.', 'guest-post-frontend-submitter');
+            case 'captcha_invalid':
+                return __('The security answer is incorrect. Please try again.', 'guest-post-frontend-submitter');
+            case 'limit_exceeded':
+                return __('You have reached the maximum number of submissions allowed per day. Please try again tomorrow.', 'guest-post-frontend-submitter');
             default:
                 return __('An unknown error occurred. Please try again.', 'guest-post-frontend-submitter');
         }
+    }
+    
+    /**
+     * Render the React form.
+     *
+     * @since    1.0.0
+     * @param    array    $atts       Shortcode attributes.
+     * @param    string   $content    Shortcode content.
+     * @return   string               HTML output.
+     */
+    public function render_react_form($atts, $content = null) {
+        // Extract shortcode attributes
+        $atts = shortcode_atts(array(
+            'title' => __('Submit a Guest Post', 'guest-post-frontend-submitter'),
+            'success_message' => __('Thank you! Your submission has been received. We\'ll review it and get back to you soon.', 'guest-post-frontend-submitter'),
+            'button_text' => __('Submit Post', 'guest-post-frontend-submitter'),
+            'show_excerpt' => 'yes',
+            'show_featured_image' => 'yes',
+            'redirect' => '',
+        ), $atts, 'guest_post_react_form');
+        
+        // Check for form submission status
+        $form_success = isset($_GET['gpfs_success']) && $_GET['gpfs_success'] == '1';
+        $form_error = null;
+        
+        if (isset($_GET['gpfs_error'])) {
+            $error_type = sanitize_text_field($_GET['gpfs_error']);
+            $form_error = $this->get_error_message($error_type);
+        }
+        
+        // Get all categories
+        $categories = get_categories(array(
+            'hide_empty' => false,
+            'orderby'    => 'name',
+            'order'      => 'ASC',
+        ));
+        
+        $categories_array = array();
+        foreach ($categories as $category) {
+            $categories_array[] = array(
+                'id' => $category->term_id,
+                'name' => $category->name
+            );
+        }
+        
+        // Check if CAPTCHA is enabled
+        $options = get_option('gpfs_options', array());
+        $enable_captcha = isset($options['enable_captcha']) ? $options['enable_captcha'] : 1;
+        
+        // Generate CAPTCHA question if enabled
+        $captcha_question = '';
+        if ($enable_captcha) {
+            $num1 = wp_rand(1, 10);
+            $num2 = wp_rand(1, 10);
+            $captcha_answer = $num1 + $num2;
+            
+            // Store the answer in a session
+            if (!session_id()) {
+                session_start();
+            }
+            $_SESSION['gpfs_captcha_answer'] = $captcha_answer;
+            
+            $captcha_question = sprintf(__('What is %d + %d?', 'guest-post-frontend-submitter'), $num1, $num2);
+        }
+        
+        // Prepare form configuration
+        $form_config = array(
+            'formTitle' => $atts['title'],
+            'successMessage' => $atts['success_message'],
+            'formSuccess' => $form_success,
+            'formError' => $form_error,
+            'showExcerpt' => $atts['show_excerpt'] === 'yes',
+            'showFeaturedImage' => $atts['show_featured_image'] === 'yes',
+            'captchaEnabled' => $enable_captcha,
+            'captchaQuestion' => $captcha_question,
+            'nonce' => wp_create_nonce('gpfs_submit_post_nonce'),
+            'categories' => $categories_array,
+            'labels' => array(
+                'title' => __('Post Title', 'guest-post-frontend-submitter'),
+                'content' => __('Post Content', 'guest-post-frontend-submitter'),
+                'authorName' => __('Author Name', 'guest-post-frontend-submitter'),
+                'authorEmail' => __('Author Email', 'guest-post-frontend-submitter'),
+                'authorBio' => __('Author Bio', 'guest-post-frontend-submitter'),
+                'category' => __('Post Category', 'guest-post-frontend-submitter'),
+                'excerpt' => __('Excerpt', 'guest-post-frontend-submitter'),
+                'featuredImage' => __('Featured Image', 'guest-post-frontend-submitter'),
+                'captcha' => __('Security Question', 'guest-post-frontend-submitter'),
+                'submit' => $atts['button_text'],
+                'submitting' => __('Submitting...', 'guest-post-frontend-submitter')
+            ),
+            'placeholders' => array(
+                'authorBio' => __('Tell us about yourself (optional)', 'guest-post-frontend-submitter'),
+                'category' => __('Select a category', 'guest-post-frontend-submitter')
+            ),
+            'descriptions' => array(
+                'authorBio' => __('Share a brief bio that will be displayed with your post.', 'guest-post-frontend-submitter'),
+                'excerpt' => __('A short summary of your post. If left empty, an excerpt will be generated from your content.', 'guest-post-frontend-submitter'),
+                'featuredImage' => __('Upload an image to be used as the featured image for your post. Allowed formats: JPEG, PNG, GIF.', 'guest-post-frontend-submitter')
+            )
+        );
+        
+        // Create container with data attributes
+        $output = '<div class="gpfs-react-form-container" data-form-config="' . esc_attr(json_encode($form_config)) . '"></div>';
+        
+        // Add a fallback for non-JS users
+        $output .= '<noscript>';
+        $output .= '<div class="gpfs-error-message">';
+        $output .= __('JavaScript is required to use this form. Please enable JavaScript in your browser settings.', 'guest-post-frontend-submitter');
+        $output .= '</div>';
+        $output .= '</noscript>';
+        
+        return $output;
     }
 }

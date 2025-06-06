@@ -125,17 +125,50 @@
                 const file = this.files[0];
                 
                 if (file) {
+                    // Validate file type
+                    const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                    if (!validTypes.includes(file.type)) {
+                        alert(gpfs_ajax.strings.invalid_file_type);
+                        this.value = '';
+                        return;
+                    }
+                    
+                    // Validate file size (5MB max)
+                    const maxSize = 5 * 1024 * 1024; // 5MB
+                    if (file.size > maxSize) {
+                        alert(gpfs_ajax.strings.file_too_large);
+                        this.value = '';
+                        return;
+                    }
+                    
                     const reader = new FileReader();
                     
                     reader.onload = function(e) {
-                        let $preview = $form.find('.gpfs-image-preview');
+                        const $previewContainer = $('#gpfs-image-preview-container');
                         
-                        if (!$preview.length) {
-                            $preview = $('<div class="gpfs-image-preview"><img src="" alt="Preview"></div>');
-                            $featuredImage.after($preview);
-                        }
+                        // Clear previous preview
+                        $previewContainer.empty();
                         
-                        $preview.find('img').attr('src', e.target.result);
+                        // Create image element
+                        const $img = $('<img>', {
+                            src: e.target.result,
+                            alt: 'Featured image preview',
+                            class: 'gpfs-image-preview'
+                        });
+                        
+                        // Add remove button
+                        const $removeBtn = $('<button>', {
+                            type: 'button',
+                            class: 'gpfs-remove-image',
+                            text: gpfs_ajax.strings.remove_image
+                        }).on('click', function(e) {
+                            e.preventDefault();
+                            $featuredImage.val('');
+                            $previewContainer.empty();
+                        });
+                        
+                        // Add to preview container
+                        $previewContainer.append($img, $removeBtn);
                     };
                     
                     reader.readAsDataURL(file);

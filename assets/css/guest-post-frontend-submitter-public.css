@@ -25,6 +25,7 @@
 
 .gpfs-form-field input[type="text"],
 .gpfs-form-field input[type="email"],
+.gpfs-form-field input[type="number"],
 .gpfs-form-field textarea,
 .gpfs-form-field select {
     width: 100%;
@@ -36,12 +37,32 @@
     line-height: 1.4;
 }
 
+.gpfs-field-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
 .gpfs-form-field textarea {
     min-height: 150px;
 }
 
 .gpfs-form-field input[type="file"] {
     padding: 10px 0;
+}
+
+.gpfs-image-preview-container {
+    margin-top: 10px;
+    max-width: 300px;
+}
+
+.gpfs-image-preview-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 3px;
 }
 
 .gpfs-form-field input[type="submit"] {
@@ -102,6 +123,20 @@
 
 .mce-toolbar .mce-btn button {
     padding: 4px;
+}
+
+/* CAPTCHA field */
+.gpfs-captcha-field {
+    margin-bottom: 25px;
+}
+
+.gpfs-captcha-question {
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    display: inline-block;
 }
 
 /* Responsive adjustments */

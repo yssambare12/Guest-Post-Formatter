@@ -1,0 +1,1616 @@
+# Copyright (C) 2025 Your Name
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Guest Post Frontend Submitter 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/guest-post-frontend-submitter\n"
+"POT-Creation-Date: 2025-06-06 08:13:24+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: admin/class-gpfs-admin.php:57 admin/class-gpfs-admin.php:58
+#: includes/class-gpfs-core.php:94
+msgid "Guest Post Submitter"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:69 admin/class-gpfs-admin.php:70
+msgid "Dashboard"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:79 admin/class-gpfs-admin.php:80
+msgid "Submissions"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:89 admin/class-gpfs-admin.php:90
+#: admin/partials/gpfs-documentation-display.php:27
+#: admin/partials/gpfs-documentation-display.php:116
+msgid "Settings"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:99 admin/class-gpfs-admin.php:100
+#: admin/partials/gpfs-dashboard-display.php:205
+msgid "Documentation"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:151
+msgid "Recent Guest Post Submissions"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:178
+msgid "No recent guest post submissions."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:215 admin/partials/gpfs-dashboard-display.php:176
+#: admin/partials/gpfs-submissions-display.php:111
+msgid "Approve"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:216 admin/partials/gpfs-dashboard-display.php:177
+#: admin/partials/gpfs-submissions-display.php:112
+msgid "Reject"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:217
+#: admin/partials/gpfs-submissions-display.php:89
+msgid "Edit"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:225
+msgid "View all submissions"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:281 admin/partials/gpfs-admin-display.php:34
+#: admin/partials/gpfs-admin-display.php:43
+#: admin/partials/gpfs-documentation-display.php:119
+#: includes/class-gpfs-core.php:116
+msgid "General Settings"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:289 includes/class-gpfs-core.php:131
+msgid "Default Category"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:298
+msgid "Enable Moderation"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:307 admin/partials/gpfs-admin-display.php:35
+#: admin/partials/gpfs-admin-display.php:50
+#: admin/partials/gpfs-documentation-display.php:125
+msgid "Submission Limits"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:315
+msgid "Enable Submission Limits"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:324
+msgid "Max Submissions Per Day"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:333 admin/partials/email-templates-tab.php:18
+#: admin/partials/gpfs-admin-display.php:36
+#: admin/partials/gpfs-documentation-display.php:131
+msgid "Email Templates"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:341
+msgid "Admin Notification Subject"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:350
+msgid "Admin Notification Body"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:359
+msgid "Approval Email Subject"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:368
+msgid "Approval Email Body"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:377
+msgid "Rejection Email Subject"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:386
+msgid "Rejection Email Body"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:459
+msgid "Configure general settings for guest post submissions."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:472 includes/class-gpfs-react-form.php:164
+#: includes/class-gpfs-shortcode.php:133 includes/class-gpfs-shortcode.php:322
+msgid "Select a category"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:476
+msgid "Choose a default category for guest posts if none is selected in the form."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:488
+msgid "Enable moderation for guest posts"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:490
+msgid ""
+"If enabled, guest posts will be saved as pending for review. If disabled, "
+"posts will be published directly."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:498
+msgid "Configure limits for guest post submissions."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:510
+msgid "Enable submission limits by IP address"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:512
+msgid ""
+"If enabled, users will be limited to a maximum number of submissions per "
+"day."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:524
+msgid "Maximum number of submissions allowed per IP address per day."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:532
+msgid ""
+"Customize email templates for notifications. You can use the following "
+"merge tags:"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:534 admin/partials/email-templates-tab.php:131
+#: includes/class-gpfs-core.php:328 includes/class-gpfs-core.php:365
+msgid "Your website name"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:535 admin/partials/email-templates-tab.php:132
+#: includes/class-gpfs-core.php:366
+msgid "Your website URL"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:536 admin/partials/email-templates-tab.php:133
+#: includes/class-gpfs-core.php:329 includes/class-gpfs-core.php:367
+msgid "The submitted post title"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:537 admin/partials/email-templates-tab.php:134
+msgid "The submitted post content"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:538 admin/partials/email-templates-tab.php:135
+#: includes/class-gpfs-core.php:368
+msgid "The author's name"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:539 admin/partials/email-templates-tab.php:136
+#: includes/class-gpfs-core.php:369
+msgid "The author's email"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:540 admin/partials/email-templates-tab.php:137
+#: includes/class-gpfs-core.php:370
+msgid "The author's bio"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:541 admin/partials/email-templates-tab.php:138
+#: includes/class-gpfs-core.php:371
+msgid "The date and time of submission"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:542 admin/partials/email-templates-tab.php:139
+#: includes/class-gpfs-core.php:372
+msgid "Link to edit the post in admin"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:543 admin/partials/email-templates-tab.php:140
+msgid "Link to view the published post"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:544 admin/partials/email-templates-tab.php:141
+msgid "Link to approve the post (admin notification only)"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:545 admin/partials/email-templates-tab.php:142
+msgid "Link to reject the post (admin notification only)"
+msgstr ""
+
+#: admin/class-gpfs-admin.php:558 admin/partials/email-templates-tab.php:31
+msgid "Subject line for the email sent to admin when a new guest post is submitted."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:585 admin/partials/email-templates-tab.php:56
+msgid ""
+"Email body for the notification sent to admin when a new guest post is "
+"submitted."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:598 admin/partials/email-templates-tab.php:72
+msgid "Subject line for the email sent to the author when their post is approved."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:618 admin/partials/email-templates-tab.php:90
+msgid ""
+"Email body for the notification sent to the author when their post is "
+"approved."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:631 admin/partials/email-templates-tab.php:106
+msgid "Subject line for the email sent to the author when their post is rejected."
+msgstr ""
+
+#: admin/class-gpfs-admin.php:650 admin/partials/email-templates-tab.php:123
+msgid ""
+"Email body for the notification sent to the author when their post is "
+"rejected."
+msgstr ""
+
+#: admin/partials/admin-display.php:34
+#: admin/partials/gpfs-admin-display.php:363
+#: admin/partials/gpfs-dashboard-display.php:197
+msgid "Shortcode Usage"
+msgstr ""
+
+#: admin/partials/admin-display.php:35
+msgid ""
+"Use the following shortcode to display the guest post submission form on "
+"any page or post:"
+msgstr ""
+
+#: admin/partials/admin-display.php:38
+msgid "Available Attributes"
+msgstr ""
+
+#: admin/partials/admin-display.php:42
+#: admin/partials/gpfs-documentation-display.php:85
+msgid "Form title"
+msgstr ""
+
+#: admin/partials/admin-display.php:47
+#: admin/partials/gpfs-documentation-display.php:90
+msgid "Message displayed after successful submission"
+msgstr ""
+
+#: admin/partials/admin-display.php:52
+#: admin/partials/gpfs-documentation-display.php:95
+msgid "Submit button text"
+msgstr ""
+
+#: admin/partials/admin-display.php:57
+msgid "Show excerpt field (yes/no)"
+msgstr ""
+
+#: admin/partials/admin-display.php:62
+msgid "Show featured image upload field (yes/no)"
+msgstr ""
+
+#: admin/partials/admin-display.php:67
+msgid "Form Fields"
+msgstr ""
+
+#: admin/partials/admin-display.php:68
+msgid "The form includes the following fields:"
+msgstr ""
+
+#: admin/partials/admin-display.php:70
+msgid "Post Title (required)"
+msgstr ""
+
+#: admin/partials/admin-display.php:71
+msgid "Post Content with rich text editor (required)"
+msgstr ""
+
+#: admin/partials/admin-display.php:72
+msgid "Author Name (required)"
+msgstr ""
+
+#: admin/partials/admin-display.php:73
+msgid "Author Email (required)"
+msgstr ""
+
+#: admin/partials/admin-display.php:74
+msgid "Author Bio (optional)"
+msgstr ""
+
+#: admin/partials/admin-display.php:75
+msgid "Post Category (required)"
+msgstr ""
+
+#: admin/partials/admin-display.php:76
+msgid "Excerpt (optional)"
+msgstr ""
+
+#: admin/partials/admin-display.php:77
+msgid "Featured Image (optional)"
+msgstr ""
+
+#: admin/partials/admin-display.php:80
+msgid "Post Submission Process"
+msgstr ""
+
+#: admin/partials/admin-display.php:81
+msgid "When a user submits a post:"
+msgstr ""
+
+#: admin/partials/admin-display.php:83
+msgid "The form validates all required fields"
+msgstr ""
+
+#: admin/partials/admin-display.php:84
+msgid "The post is saved as a draft"
+msgstr ""
+
+#: admin/partials/admin-display.php:85
+msgid "Author information is saved as post metadata"
+msgstr ""
+
+#: admin/partials/admin-display.php:86
+msgid "The post is assigned to the selected category"
+msgstr ""
+
+#: admin/partials/admin-display.php:87
+msgid "An email notification is sent to the admin with approve/reject links"
+msgstr ""
+
+#: admin/partials/admin-display.php:88
+msgid "A success message is displayed to the user"
+msgstr ""
+
+#: admin/partials/admin-display.php:91 includes/class-gpfs-core.php:147
+msgid "Email Notifications"
+msgstr ""
+
+#: admin/partials/admin-display.php:92
+msgid "When a new guest post is submitted, an email notification is sent with:"
+msgstr ""
+
+#: admin/partials/admin-display.php:94
+msgid "Post title and submission date"
+msgstr ""
+
+#: admin/partials/admin-display.php:95
+msgid "Author name and email"
+msgstr ""
+
+#: admin/partials/admin-display.php:96
+msgid "Link to edit the post in the admin area"
+msgstr ""
+
+#: admin/partials/admin-display.php:97
+msgid "One-click \"Approve\" link to publish the post"
+msgstr ""
+
+#: admin/partials/admin-display.php:98
+msgid "One-click \"Reject\" link to trash the post"
+msgstr ""
+
+#: admin/partials/admin-display.php:105
+#: admin/partials/gpfs-admin-display.php:357
+msgid "About This Plugin"
+msgstr ""
+
+#: admin/partials/admin-display.php:106
+#: admin/partials/gpfs-admin-display.php:358
+msgid ""
+"Guest Post Frontend Submitter allows your visitors to submit posts from the "
+"front-end of your website."
+msgstr ""
+
+#: admin/partials/admin-display.php:107
+#: admin/partials/gpfs-admin-display.php:359
+msgid "For support or feature requests, please contact us."
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:20
+msgid "Admin Notification"
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:21
+msgid "This email is sent to the admin when a new guest post is submitted."
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:24
+#: admin/partials/email-templates-tab.php:65
+#: admin/partials/email-templates-tab.php:99
+msgid "Subject"
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:35
+#: admin/partials/email-templates-tab.php:76
+#: admin/partials/email-templates-tab.php:110
+msgid "Body"
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:61
+msgid "Approval Email"
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:62
+msgid "This email is sent to the author when their post is approved."
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:95
+msgid "Rejection Email"
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:96
+msgid "This email is sent to the author when their post is rejected."
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:128
+msgid "Available Merge Tags"
+msgstr ""
+
+#: admin/partials/email-templates-tab.php:129
+msgid "You can use the following merge tags in your email templates:"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:37
+#: admin/partials/gpfs-documentation-display.php:29
+#: admin/partials/gpfs-documentation-display.php:134
+#: admin/partials/gpfs-documentation-display.php:164
+msgid "Anti-Spam"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:38
+#: admin/partials/gpfs-documentation-display.php:30
+#: admin/partials/gpfs-documentation-display.php:142
+#: admin/partials/gpfs-documentation-display.php:184
+msgid "Email Marketing"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:39
+#: admin/partials/gpfs-documentation-display.php:145
+msgid "Form Style"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:57 includes/class-gpfs-core.php:180
+msgid "Anti-Spam Settings"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:59
+msgid "reCAPTCHA Integration"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:62
+msgid "Enable reCAPTCHA"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:69
+msgid "Enable Google reCAPTCHA v2"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:71
+msgid "Adds reCAPTCHA verification to the submission form to prevent spam."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:75
+msgid "Site Key"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:81
+msgid ""
+"Enter your reCAPTCHA site key. You can get this from the <a "
+"href=\"https://www.google.com/recaptcha/admin\" target=\"_blank\">Google "
+"reCAPTCHA Admin Console</a>."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:85
+msgid "Secret Key"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:91
+msgid "Enter your reCAPTCHA secret key."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:96
+msgid "Blocked Email Domains"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:99
+msgid "Blocked Domains"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:105
+msgid ""
+"Enter one domain per line. Submissions from these domains will be blocked. "
+"For example: spam.com"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:110
+#: admin/partials/gpfs-admin-display.php:113
+msgid "Blocked Keywords"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:119
+msgid ""
+"Enter one keyword per line. Submissions containing these keywords will be "
+"blocked. For example: casino, viagra"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:124
+msgid "OpenAI Moderation API"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:127
+msgid "Enable OpenAI Moderation"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:134
+msgid "Enable OpenAI Moderation API"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:136
+msgid ""
+"Uses OpenAI's Moderation API to automatically detect and block harmful "
+"content."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:140
+#: admin/partials/gpfs-admin-display.php:198
+#: admin/partials/gpfs-admin-display.php:234
+msgid "API Key"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:146
+msgid ""
+"Enter your OpenAI API key. You can get this from the <a "
+"href=\"https://platform.openai.com/account/api-keys\" "
+"target=\"_blank\">OpenAI Dashboard</a>."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:153
+msgid "Email Marketing Integration"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:157
+msgid "Enable Email Marketing"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:164
+msgid "Enable email marketing integration"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:166
+msgid ""
+"Adds a consent checkbox to the form and integrates with email marketing "
+"services."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:170
+msgid "Consent Text"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:173
+#: includes/class-gpfs-email-marketing.php:37
+msgid "Yes, I would like to receive updates and newsletters."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:176
+msgid "Text displayed next to the consent checkbox."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:180
+msgid "Email Marketing Service"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:186
+msgid "Select a service"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:187
+#: admin/partials/gpfs-documentation-display.php:187
+msgid "Mailchimp"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:188
+#: admin/partials/gpfs-documentation-display.php:190
+msgid "ConvertKit"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:195
+msgid "Mailchimp Settings"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:204
+msgid "Enter your Mailchimp API key."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:208
+msgid "List ID"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:214
+msgid "Enter your Mailchimp list/audience ID."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:218
+#: admin/partials/gpfs-admin-display.php:254
+msgid "Tags"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:224
+msgid ""
+"Enter tags to apply to subscribers, separated by commas. For example: guest "
+"author, website"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:231
+msgid "ConvertKit Settings"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:240
+msgid "Enter your ConvertKit API key."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:244
+msgid "Form ID"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:250
+msgid "Enter your ConvertKit form ID."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:260
+msgid "Enter tags to apply to subscribers, separated by commas."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:268
+msgid "Form Style Settings"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:272
+msgid "Form Theme"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:278
+msgid "Light"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:279
+msgid "Dark"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:280
+msgid "Custom"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:282
+msgid "Select the theme for the submission form."
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:288
+msgid "Custom Theme Settings"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:291
+msgid "Background Color"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:300
+msgid "Text Color"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:309
+msgid "Button Color"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:318
+msgid "Button Text Color"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:329
+msgid "Form Preview"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:333
+#: admin/partials/gpfs-documentation-display.php:86
+#: includes/class-gpfs-react-form.php:85 includes/class-gpfs-shortcode.php:35
+#: includes/class-gpfs-shortcode.php:243
+msgid "Submit a Guest Post"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:336
+#: includes/class-gpfs-react-form.php:150 includes/class-gpfs-shortcode.php:79
+#: includes/class-gpfs-shortcode.php:308
+msgid "Post Title"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:337
+msgid "Enter post title"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:340
+#: includes/class-gpfs-react-form.php:151 includes/class-gpfs-shortcode.php:85
+#: includes/class-gpfs-shortcode.php:309
+msgid "Post Content"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:341
+msgid "Enter post content"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:344
+#: admin/partials/gpfs-documentation-display.php:96
+#: includes/class-gpfs-react-form.php:87 includes/class-gpfs-shortcode.php:37
+#: includes/class-gpfs-shortcode.php:245
+msgid "Submit Post"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:364
+msgid "Use this shortcode to display the submission form:"
+msgstr ""
+
+#: admin/partials/gpfs-admin-display.php:367
+msgid "With custom attributes:"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:85
+msgid "Welcome to Guest Post Submitter"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:86
+msgid ""
+"Manage guest post submissions, configure settings, and monitor activity "
+"from this dashboard."
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:90
+msgid "View All Submissions"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:91
+msgid "Configure Settings"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:97
+msgid "Total Submissions"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:102
+msgid "Pending Review"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:107
+#: includes/class-gpfs-core.php:224
+msgid "Published"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:112
+msgid "Rejected"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:118
+msgid "Recent Submissions"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:121
+msgid "No recent submissions found."
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:126
+#: admin/partials/gpfs-submissions-display.php:50
+msgid "Title"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:127
+#: admin/partials/gpfs-submissions-display.php:51
+msgid "Author"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:128
+#: admin/partials/gpfs-submissions-display.php:53
+msgid "Date"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:129
+#: admin/partials/gpfs-submissions-display.php:54
+msgid "Status"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:130
+#: admin/partials/gpfs-submissions-display.php:55
+msgid "Actions"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:169
+#: admin/partials/gpfs-submissions-display.php:104
+#: includes/class-gpfs-core.php:222
+msgid "Pending"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:171
+#: admin/partials/gpfs-submissions-display.php:106
+#: includes/class-gpfs-core.php:223
+msgid "Draft"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:189
+msgid "Quick Stats"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:191
+msgid "Last 30 Days:"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:191
+msgid "submissions"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:192
+msgid "Approval Rate:"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:198
+msgid "Add the submission form to any page or post:"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:200
+msgid "For the enhanced React form:"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:206
+msgid "Need help? Check out our documentation:"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:208
+msgid "Plugin Documentation"
+msgstr ""
+
+#: admin/partials/gpfs-dashboard-display.php:209
+msgid "GitHub Repository"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:24
+#: admin/partials/gpfs-documentation-display.php:37
+msgid "Introduction"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:25
+#: admin/partials/gpfs-documentation-display.php:54
+msgid "Installation"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:26
+#: admin/partials/gpfs-documentation-display.php:64
+msgid "Shortcodes"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:28
+#: admin/partials/gpfs-documentation-display.php:150
+msgid "Moderation"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:31
+msgid "FAQ"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:38
+msgid ""
+"Guest Post Frontend Submitter allows visitors to submit posts from the "
+"front-end of your WordPress site. It's perfect for blogs that accept guest "
+"contributions, community websites, or any site that wants to encourage "
+"user-generated content."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:40
+msgid "Features"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:42
+msgid "Simple shortcode to display the submission form anywhere on your site"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:43
+msgid ""
+"Customizable form fields including title, content, excerpt, and featured "
+"image"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:44
+msgid "Security features to prevent spam submissions"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:45
+msgid "Admin settings to control post status and category"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:46
+msgid "Email notifications with one-click approve/reject actions"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:47
+msgid "Responsive design that works on all devices"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:48
+msgid "Lightweight and optimized for performance"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:49
+msgid "Developer-friendly with hooks and filters for customization"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:56
+msgid ""
+"Upload the <code>guest-post-frontend-submitter</code> folder to the "
+"<code>/wp-content/plugins/</code> directory"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:57
+msgid "Activate the plugin through the 'Plugins' menu in WordPress"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:58
+msgid "Go to Guest Post Submitter > Settings to configure the plugin"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:59
+msgid ""
+"Add the shortcode <code>[guest_post_form]</code> to any page or post where "
+"you want the submission form to appear"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:65
+msgid "The plugin provides two shortcodes for displaying the submission form:"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:67
+msgid "Standard Form"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:70
+msgid "React-based Form"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:73
+msgid "Shortcode Attributes"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:77
+msgid "Attribute"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:78
+msgid "Description"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:79
+msgid "Default"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:91
+#: includes/class-gpfs-shortcode.php:36
+msgid "Thank you! Your post has been submitted successfully."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:100
+msgid "Show excerpt field"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:105
+msgid "Show featured image upload field"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:111
+msgid "Example"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:117
+msgid "The plugin settings are organized into several tabs:"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:121
+msgid ""
+"<strong>Default Category</strong>: Choose a default category for guest "
+"posts if none is selected in the form."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:122
+msgid ""
+"<strong>Enable Moderation</strong>: If enabled, guest posts will be saved "
+"as pending for review. If disabled, posts will be published directly."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:127
+msgid ""
+"<strong>Enable Submission Limits</strong>: If enabled, users will be "
+"limited to a maximum number of submissions per day."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:128
+msgid ""
+"<strong>Max Submissions Per Day</strong>: Maximum number of submissions "
+"allowed per IP address per day."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:132
+msgid ""
+"Customize the email templates for admin notifications and author "
+"notifications."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:136
+msgid ""
+"<strong>Enable reCAPTCHA</strong>: Adds reCAPTCHA verification to the "
+"submission form to prevent spam."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:137
+msgid ""
+"<strong>Blocked Domains</strong>: Block submissions from specific email "
+"domains."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:138
+msgid ""
+"<strong>Blocked Keywords</strong>: Block submissions containing specific "
+"keywords."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:139
+msgid ""
+"<strong>Enable OpenAI Moderation</strong>: Uses OpenAI's Moderation API to "
+"automatically detect and block harmful content."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:143
+msgid "Integrate with email marketing services like Mailchimp and ConvertKit."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:146
+msgid "Customize the appearance of the submission form."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:151
+msgid "The plugin provides several ways to moderate guest post submissions:"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:153
+msgid "Email Moderation"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:154
+msgid ""
+"When a new guest post is submitted, an email notification is sent to the "
+"admin with links to approve or reject the post directly from the email."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:156
+msgid "Dashboard Moderation"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:157
+msgid ""
+"The plugin adds a dashboard widget showing recent submissions with quick "
+"action links to approve or reject posts."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:159
+msgid "Submissions Page"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:160
+msgid ""
+"The Submissions page provides a comprehensive view of all guest post "
+"submissions with filtering options and bulk actions."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:165
+msgid "The plugin includes several anti-spam features:"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:167
+msgid "reCAPTCHA"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:168
+msgid "Integrate Google reCAPTCHA v2 to prevent bot submissions."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:170
+msgid "Honeypot"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:171
+msgid ""
+"The form includes a hidden honeypot field to catch automated spam "
+"submissions."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:173
+msgid "Domain Blocking"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:174
+msgid "Block submissions from specific email domains known for spam."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:176
+msgid "Keyword Filtering"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:177
+msgid "Block submissions containing specific keywords associated with spam."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:179
+msgid "OpenAI Moderation"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:180
+msgid ""
+"Use OpenAI's Moderation API to automatically detect and block harmful "
+"content."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:185
+msgid "The plugin can integrate with popular email marketing services:"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:188
+msgid "Add guest post authors to your Mailchimp lists with their consent."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:191
+msgid "Add guest post authors to your ConvertKit forms with their consent."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:193
+msgid "Consent Checkbox"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:194
+msgid ""
+"The plugin adds a consent checkbox to the submission form to comply with "
+"privacy regulations."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:198
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:201
+msgid "Can I customize the submission form?"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:202
+msgid ""
+"Yes, you can customize the form using shortcode attributes and the Form "
+"Style settings. You can also use CSS to further customize the appearance."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:206
+msgid "How do I moderate submissions?"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:207
+msgid ""
+"You can moderate submissions through email notifications, the dashboard "
+"widget, or the Submissions page. You can approve or reject posts with a "
+"single click."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:211
+msgid "Can I limit the number of submissions?"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:212
+msgid ""
+"Yes, you can limit the number of submissions per IP address per day in the "
+"Submission Limits settings."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:216
+msgid "How do I prevent spam submissions?"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:217
+msgid ""
+"The plugin includes several anti-spam features: reCAPTCHA, honeypot, domain "
+"blocking, keyword filtering, and OpenAI Moderation."
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:221
+msgid "Can I add guest post authors to my email list?"
+msgstr ""
+
+#: admin/partials/gpfs-documentation-display.php:222
+msgid ""
+"Yes, the plugin integrates with Mailchimp and ConvertKit to add guest post "
+"authors to your email list with their consent."
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:42
+msgid "Guest Post Submissions"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:45
+msgid "No submissions found."
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:52
+msgid "Category"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:63
+msgid "Uncategorized"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:90
+msgid "Preview"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:137
+msgid "Submission Statistics"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:153
+msgid "Total Guest Posts:"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:154
+msgid "Pending Review:"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:155
+msgid "Drafts:"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:160
+msgid "Quick Links"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:162
+msgid "Plugin Settings"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:163
+msgid "All Pending Posts"
+msgstr ""
+
+#: admin/partials/gpfs-submissions-display.php:164
+msgid "All Draft Posts"
+msgstr ""
+
+#: includes/class-gpfs-anti-spam.php:107 includes/class-gpfs-anti-spam.php:126
+msgid "reCAPTCHA verification failed. Please go back and try again."
+msgstr ""
+
+#: includes/class-gpfs-anti-spam.php:107 includes/class-gpfs-anti-spam.php:126
+msgid "Verification Failed"
+msgstr ""
+
+#: includes/class-gpfs-anti-spam.php:159
+msgid "Submissions from this email domain are not allowed."
+msgstr ""
+
+#: includes/class-gpfs-anti-spam.php:159 includes/class-gpfs-anti-spam.php:187
+#: includes/class-gpfs-anti-spam.php:240
+msgid "Submission Blocked"
+msgstr ""
+
+#: includes/class-gpfs-anti-spam.php:187
+msgid "Your submission contains content that is not allowed."
+msgstr ""
+
+#: includes/class-gpfs-anti-spam.php:236
+msgid ""
+"Your submission was flagged by our content moderation system for the "
+"following reasons:"
+msgstr ""
+
+#: includes/class-gpfs-anti-spam.php:238
+msgid "Please review our content guidelines and submit again."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Guest Post Frontend Submitter"
+msgstr ""
+
+#: includes/class-gpfs-core.php:123
+msgid "Default Post Status"
+msgstr ""
+
+#: includes/class-gpfs-core.php:140
+msgid "Email Notification Settings"
+msgstr ""
+
+#: includes/class-gpfs-core.php:155
+msgid "Notification Email"
+msgstr ""
+
+#: includes/class-gpfs-core.php:163
+msgid "Email Subject Template"
+msgstr ""
+
+#: includes/class-gpfs-core.php:171
+msgid "Email Message Template"
+msgstr ""
+
+#: includes/class-gpfs-core.php:187
+msgid "CAPTCHA Protection"
+msgstr ""
+
+#: includes/class-gpfs-core.php:209
+msgid "Configure the general settings for the guest post submission form."
+msgstr ""
+
+#: includes/class-gpfs-core.php:226
+msgid "Select the default status for submitted posts."
+msgstr ""
+
+#: includes/class-gpfs-core.php:242
+msgid "Select Category"
+msgstr ""
+
+#: includes/class-gpfs-core.php:246
+msgid "Select the default category for submitted posts."
+msgstr ""
+
+#: includes/class-gpfs-core.php:260
+msgid "Send email notifications when new guest posts are submitted"
+msgstr ""
+
+#: includes/class-gpfs-core.php:262
+msgid "Emails include links to approve or reject the submission."
+msgstr ""
+
+#: includes/class-gpfs-core.php:276
+msgid "Email address to receive notifications. Default is the admin email."
+msgstr ""
+
+#: includes/class-gpfs-core.php:286
+msgid "Configure email notification settings for guest post submissions."
+msgstr ""
+
+#: includes/class-gpfs-core.php:295
+msgid "Configure anti-spam settings to protect your form from unwanted submissions."
+msgstr ""
+
+#: includes/class-gpfs-core.php:309
+msgid "Enable math CAPTCHA to prevent spam submissions"
+msgstr ""
+
+#: includes/class-gpfs-core.php:311
+msgid "Adds a simple math question that users must answer correctly."
+msgstr ""
+
+#: includes/class-gpfs-core.php:322
+msgid "[%site_name%] New Guest Post Submission: \"%post_title%\""
+msgstr ""
+
+#: includes/class-gpfs-core.php:327 includes/class-gpfs-core.php:364
+msgid "Available placeholders:"
+msgstr ""
+
+#: includes/class-gpfs-core.php:341
+msgid ""
+"A new guest post has been submitted to your site %site_name%.\n"
+"\n"
+"Post Details:\n"
+"-------------\n"
+"Title: %post_title%\n"
+"Author: %author_name% (%author_email%)\n"
+"Author Bio: %author_bio%\n"
+"Submission Date: %submission_date%\n"
+"\n"
+"You can view the full post in your WordPress admin:\n"
+"%edit_link%\n"
+"\n"
+"Quick Actions:\n"
+"-------------\n"
+"Approve: %approve_link%\n"
+"Reject: %reject_link%\n"
+"\n"
+"This email was sent from your website %site_url%."
+msgstr ""
+
+#: includes/class-gpfs-core.php:373
+msgid "Link to approve the post"
+msgstr ""
+
+#: includes/class-gpfs-core.php:374
+msgid "Link to reject the post"
+msgstr ""
+
+#: includes/class-gpfs-core.php:453
+msgid "Invalid file type. Please upload a JPEG, PNG, or GIF image."
+msgstr ""
+
+#: includes/class-gpfs-core.php:454
+msgid "File is too large. Maximum size is 5MB."
+msgstr ""
+
+#: includes/class-gpfs-core.php:455
+msgid "Remove image"
+msgstr ""
+
+#: includes/class-gpfs-form-handler.php:25
+msgid "Security check failed. Please try again."
+msgstr ""
+
+#: includes/class-gpfs-form-handler.php:25
+msgid "Error"
+msgstr ""
+
+#: includes/class-gpfs-notification.php:110
+msgid "(No bio provided)"
+msgstr ""
+
+#: includes/class-gpfs-notification.php:144
+#: includes/class-gpfs-notification.php:195
+msgid "Invalid request."
+msgstr ""
+
+#: includes/class-gpfs-notification.php:152
+#: includes/class-gpfs-notification.php:203
+msgid "Security check failed. Invalid nonce."
+msgstr ""
+
+#: includes/class-gpfs-notification.php:158
+msgid "Invalid post or post is not in draft status."
+msgstr ""
+
+#: includes/class-gpfs-notification.php:209
+msgid "Invalid post."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:86 includes/class-gpfs-shortcode.php:244
+msgid ""
+"Thank you! Your submission has been received. We'll review it and get back "
+"to you soon."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:134 includes/class-gpfs-shortcode.php:177
+#: includes/class-gpfs-shortcode.php:292
+msgid "What is %d + %d?"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:152 includes/class-gpfs-shortcode.php:105
+#: includes/class-gpfs-shortcode.php:310
+msgid "Author Name"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:153 includes/class-gpfs-shortcode.php:111
+#: includes/class-gpfs-shortcode.php:311
+msgid "Author Email"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:154 includes/class-gpfs-shortcode.php:117
+#: includes/class-gpfs-shortcode.php:312
+msgid "Author Bio"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:155 includes/class-gpfs-shortcode.php:123
+#: includes/class-gpfs-shortcode.php:313
+msgid "Post Category"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:156 includes/class-gpfs-shortcode.php:145
+#: includes/class-gpfs-shortcode.php:314
+msgid "Excerpt"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:157 includes/class-gpfs-shortcode.php:153
+#: includes/class-gpfs-shortcode.php:315
+msgid "Featured Image"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:158 includes/class-gpfs-shortcode.php:176
+#: includes/class-gpfs-shortcode.php:316
+msgid "Security Question"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:160 includes/class-gpfs-shortcode.php:318
+msgid "Submitting..."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:163 includes/class-gpfs-shortcode.php:118
+#: includes/class-gpfs-shortcode.php:321
+msgid "Tell us about yourself (optional)"
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:167 includes/class-gpfs-shortcode.php:325
+msgid "Share a brief bio that will be displayed with your post."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:168 includes/class-gpfs-shortcode.php:326
+msgid ""
+"A short summary of your post. If left empty, an excerpt will be generated "
+"from your content."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:169 includes/class-gpfs-shortcode.php:155
+#: includes/class-gpfs-shortcode.php:327
+msgid ""
+"Upload an image to be used as the featured image for your post. Allowed "
+"formats: JPEG, PNG, GIF."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:179 includes/class-gpfs-shortcode.php:337
+msgid ""
+"JavaScript is required to use this form. Please enable JavaScript in your "
+"browser settings."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:196 includes/class-gpfs-shortcode.php:214
+msgid "Please fill in all required fields."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:198 includes/class-gpfs-shortcode.php:216
+msgid "There was an error submitting your post. Please try again."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:200 includes/class-gpfs-shortcode.php:218
+msgid "Your submission was flagged as spam. Please try again."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:202 includes/class-gpfs-shortcode.php:220
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:204 includes/class-gpfs-shortcode.php:222
+msgid "Please answer the security question."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:206 includes/class-gpfs-shortcode.php:224
+msgid "The security answer is incorrect. Please try again."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:208 includes/class-gpfs-shortcode.php:226
+msgid ""
+"You have reached the maximum number of submissions allowed per day. Please "
+"try again tomorrow."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:210 includes/class-gpfs-shortcode.php:228
+msgid "An unknown error occurred. Please try again."
+msgstr ""
+
+#: includes/class-gpfs-shortcode.php:47
+msgid "You must be logged in to submit a post."
+msgstr ""
+
+#: includes/class-gpfs-shortcode.php:47
+msgid "Log in"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://example.com/plugins/guest-post-frontend-submitter"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Enables front-end guest post submission with a simple shortcode."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Your Name"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://example.com"
+msgstr ""

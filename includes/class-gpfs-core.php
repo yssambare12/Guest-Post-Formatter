@@ -69,6 +69,18 @@ class GPFS_Core {
         // Initialize form handler
         $form_handler = new GPFS_Form_Handler();
         $this->loader->add_action('init', $form_handler, 'process_submission');
+        
+        // Initialize notification system
+        $notification = new GPFS_Notification();
+        $this->loader->add_action('gpfs_after_post_submission', $notification, 'send_admin_notification', 10, 2);
+        $this->loader->add_action('init', $notification, 'approve_post');
+        $this->loader->add_action('init', $notification, 'reject_post');
+        
+        // Register AJAX handlers for approve/reject actions
+        $this->loader->add_action('wp_ajax_gpfs_approve_post', $notification, 'approve_post');
+        $this->loader->add_action('wp_ajax_nopriv_gpfs_approve_post', $notification, 'approve_post');
+        $this->loader->add_action('wp_ajax_gpfs_reject_post', $notification, 'reject_post');
+        $this->loader->add_action('wp_ajax_nopriv_gpfs_reject_post', $notification, 'reject_post');
     }
 
     /**
@@ -98,6 +110,7 @@ class GPFS_Core {
             array($this, 'validate_settings')
         );
 
+        // General Settings Section
         add_settings_section(
             'gpfs_general_settings',
             __('General Settings', 'guest-post-frontend-submitter'),
@@ -119,6 +132,62 @@ class GPFS_Core {
             array($this, 'post_category_callback'),
             'guest-post-frontend-submitter',
             'gpfs_general_settings'
+        );
+        
+        // Email Notification Settings Section
+        add_settings_section(
+            'gpfs_email_settings',
+            __('Email Notification Settings', 'guest-post-frontend-submitter'),
+            array($this, 'email_settings_callback'),
+            'guest-post-frontend-submitter'
+        );
+        
+        add_settings_field(
+            'enable_notifications',
+            __('Email Notifications', 'guest-post-frontend-submitter'),
+            array($this, 'notifications_callback'),
+            'guest-post-frontend-submitter',
+            'gpfs_email_settings'
+        );
+        
+        add_settings_field(
+            'notification_email',
+            __('Notification Email', 'guest-post-frontend-submitter'),
+            array($this, 'notification_email_callback'),
+            'guest-post-frontend-submitter',
+            'gpfs_email_settings'
+        );
+        
+        add_settings_field(
+            'email_subject',
+            __('Email Subject Template', 'guest-post-frontend-submitter'),
+            array($this, 'email_subject_callback'),
+            'guest-post-frontend-submitter',
+            'gpfs_email_settings'
+        );
+        
+        add_settings_field(
+            'email_message',
+            __('Email Message Template', 'guest-post-frontend-submitter'),
+            array($this, 'email_message_callback'),
+            'guest-post-frontend-submitter',
+            'gpfs_email_settings'
+        );
+        
+        // Anti-Spam Settings Section
+        add_settings_section(
+            'gpfs_spam_settings',
+            __('Anti-Spam Settings', 'guest-post-frontend-submitter'),
+            array($this, 'spam_settings_callback'),
+            'guest-post-frontend-submitter'
+        );
+        
+        add_settings_field(
+            'enable_captcha',
+            __('CAPTCHA Protection', 'guest-post-frontend-submitter'),
+            array($this, 'enable_captcha_callback'),
+            'guest-post-frontend-submitter',
+            'gpfs_spam_settings'
         );
     }
 
@@ -176,6 +245,136 @@ class GPFS_Core {
         
         echo '<p class="description">' . __('Select the default category for submitted posts.', 'guest-post-frontend-submitter') . '</p>';
     }
+    
+    /**
+     * Notifications field callback.
+     *
+     * @since    1.0.0
+     */
+    public function notifications_callback() {
+        $options = get_option('gpfs_options');
+        $enable_notifications = isset($options['enable_notifications']) ? $options['enable_notifications'] : 1;
+        ?>
+        <label>
+            <input type="checkbox" name="gpfs_options[enable_notifications]" value="1" <?php checked(1, $enable_notifications); ?>>
+            <?php _e('Send email notifications when new guest posts are submitted', 'guest-post-frontend-submitter'); ?>
+        </label>
+        <p class="description"><?php _e('Emails include links to approve or reject the submission.', 'guest-post-frontend-submitter'); ?></p>
+        <?php
+    }
+    
+    /**
+     * Notification email field callback.
+     *
+     * @since    1.0.0
+     */
+    public function notification_email_callback() {
+        $options = get_option('gpfs_options');
+        $notification_email = isset($options['notification_email']) ? $options['notification_email'] : get_option('admin_email');
+        ?>
+        <input type="email" name="gpfs_options[notification_email]" value="<?php echo esc_attr($notification_email); ?>" class="regular-text">
+        <p class="description"><?php _e('Email address to receive notifications. Default is the admin email.', 'guest-post-frontend-submitter'); ?></p>
+        <?php
+    }
+    
+    /**
+     * Email settings section callback.
+     *
+     * @since    1.0.0
+     */
+    public function email_settings_callback() {
+        echo '<p>' . __('Configure email notification settings for guest post submissions.', 'guest-post-frontend-submitter') . '</p>';
+    }
+    
+    /**
+     * Spam settings section callback.
+     *
+     * @since    1.0.0
+     */
+    public function spam_settings_callback() {
+        echo '<p>' . __('Configure anti-spam settings to protect your form from unwanted submissions.', 'guest-post-frontend-submitter') . '</p>';
+    }
+    
+    /**
+     * Enable CAPTCHA field callback.
+     *
+     * @since    1.0.0
+     */
+    public function enable_captcha_callback() {
+        $options = get_option('gpfs_options');
+        $enable_captcha = isset($options['enable_captcha']) ? $options['enable_captcha'] : 1;
+        ?>
+        <label>
+            <input type="checkbox" name="gpfs_options[enable_captcha]" value="1" <?php checked(1, $enable_captcha); ?>>
+            <?php _e('Enable math CAPTCHA to prevent spam submissions', 'guest-post-frontend-submitter'); ?>
+        </label>
+        <p class="description"><?php _e('Adds a simple math question that users must answer correctly.', 'guest-post-frontend-submitter'); ?></p>
+        <?php
+    }
+    
+    /**
+     * Email subject template field callback.
+     *
+     * @since    1.0.0
+     */
+    public function email_subject_callback() {
+        $options = get_option('gpfs_options');
+        $default_subject = __('[%site_name%] New Guest Post Submission: "%post_title%"', 'guest-post-frontend-submitter');
+        $email_subject = isset($options['email_subject']) ? $options['email_subject'] : $default_subject;
+        ?>
+        <input type="text" name="gpfs_options[email_subject]" value="<?php echo esc_attr($email_subject); ?>" class="large-text">
+        <p class="description">
+            <?php _e('Available placeholders:', 'guest-post-frontend-submitter'); ?><br>
+            <code>%site_name%</code> - <?php _e('Your website name', 'guest-post-frontend-submitter'); ?><br>
+            <code>%post_title%</code> - <?php _e('The submitted post title', 'guest-post-frontend-submitter'); ?>
+        </p>
+        <?php
+    }
+    
+    /**
+     * Email message template field callback.
+     *
+     * @since    1.0.0
+     */
+    public function email_message_callback() {
+        $options = get_option('gpfs_options');
+        $default_message = __('A new guest post has been submitted to your site %site_name%.
+
+Post Details:
+-------------
+Title: %post_title%
+Author: %author_name% (%author_email%)
+Author Bio: %author_bio%
+Submission Date: %submission_date%
+
+You can view the full post in your WordPress admin:
+%edit_link%
+
+Quick Actions:
+-------------
+Approve: %approve_link%
+Reject: %reject_link%
+
+This email was sent from your website %site_url%.', 'guest-post-frontend-submitter');
+        
+        $email_message = isset($options['email_message']) ? $options['email_message'] : $default_message;
+        ?>
+        <textarea name="gpfs_options[email_message]" rows="15" class="large-text code"><?php echo esc_textarea($email_message); ?></textarea>
+        <p class="description">
+            <?php _e('Available placeholders:', 'guest-post-frontend-submitter'); ?><br>
+            <code>%site_name%</code> - <?php _e('Your website name', 'guest-post-frontend-submitter'); ?><br>
+            <code>%site_url%</code> - <?php _e('Your website URL', 'guest-post-frontend-submitter'); ?><br>
+            <code>%post_title%</code> - <?php _e('The submitted post title', 'guest-post-frontend-submitter'); ?><br>
+            <code>%author_name%</code> - <?php _e('The author\'s name', 'guest-post-frontend-submitter'); ?><br>
+            <code>%author_email%</code> - <?php _e('The author\'s email', 'guest-post-frontend-submitter'); ?><br>
+            <code>%author_bio%</code> - <?php _e('The author\'s bio', 'guest-post-frontend-submitter'); ?><br>
+            <code>%submission_date%</code> - <?php _e('The date and time of submission', 'guest-post-frontend-submitter'); ?><br>
+            <code>%edit_link%</code> - <?php _e('Link to edit the post in admin', 'guest-post-frontend-submitter'); ?><br>
+            <code>%approve_link%</code> - <?php _e('Link to approve the post', 'guest-post-frontend-submitter'); ?><br>
+            <code>%reject_link%</code> - <?php _e('Link to reject the post', 'guest-post-frontend-submitter'); ?>
+        </p>
+        <?php
+    }
 
     /**
      * Validate settings.
@@ -193,6 +392,23 @@ class GPFS_Core {
         
         if (isset($input['post_category'])) {
             $output['post_category'] = absint($input['post_category']);
+        }
+        
+        $output['enable_notifications'] = isset($input['enable_notifications']) ? 1 : 0;
+        $output['enable_captcha'] = isset($input['enable_captcha']) ? 1 : 0;
+        
+        if (isset($input['notification_email']) && is_email($input['notification_email'])) {
+            $output['notification_email'] = sanitize_email($input['notification_email']);
+        } else {
+            $output['notification_email'] = get_option('admin_email');
+        }
+        
+        if (isset($input['email_subject'])) {
+            $output['email_subject'] = wp_kses_post($input['email_subject']);
+        }
+        
+        if (isset($input['email_message'])) {
+            $output['email_message'] = wp_kses_post($input['email_message']);
         }
         
         return $output;
@@ -232,7 +448,12 @@ class GPFS_Core {
             'gpfs_ajax',
             array(
                 'ajax_url' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('gpfs_nonce')
+                'nonce' => wp_create_nonce('gpfs_nonce'),
+                'strings' => array(
+                    'invalid_file_type' => __('Invalid file type. Please upload a JPEG, PNG, or GIF image.', 'guest-post-frontend-submitter'),
+                    'file_too_large' => __('File is too large. Maximum size is 5MB.', 'guest-post-frontend-submitter'),
+                    'remove_image' => __('Remove image', 'guest-post-frontend-submitter')
+                )
             )
         );
     }
