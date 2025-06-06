@@ -131,6 +131,9 @@ class GPFS_React_Form {
             }
             $_SESSION['gpfs_captcha_answer'] = $captcha_answer;
             
+            // Store the answer in a cookie as backup
+            setcookie('gpfs_captcha_answer', $captcha_answer, time() + 3600, COOKIEPATH, COOKIE_DOMAIN);
+            
             $captcha_question = sprintf(__('What is %d + %d?', 'guest-post-frontend-submitter'), $num1, $num2);
         }
         

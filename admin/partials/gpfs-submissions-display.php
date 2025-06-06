@@ -108,8 +108,8 @@ $submissions = $submissions_query->posts;
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo esc_url($approve_url); ?>" class="button button-primary"><?php _e('Approve', 'guest-post-frontend-submitter'); ?></a>
-                                        <a href="<?php echo esc_url($reject_url); ?>" class="button"><?php _e('Reject', 'guest-post-frontend-submitter'); ?></a>
+                                        <a href="<?php echo esc_url($approve_url); ?>" class="button button-primary gpfs-approve-button"><?php _e('Approve', 'guest-post-frontend-submitter'); ?></a>
+                                        <a href="<?php echo esc_url($reject_url); ?>" class="button gpfs-reject-button"><?php _e('Reject', 'guest-post-frontend-submitter'); ?></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

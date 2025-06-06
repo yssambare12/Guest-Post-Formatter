@@ -154,8 +154,8 @@ class GPFS_Notification {
 
         // Check if post exists and is a draft
         $post = get_post($post_id);
-        if (!$post || $post->post_status !== 'draft') {
-            wp_die(__('Invalid post or post is not in draft status.', 'guest-post-frontend-submitter'));
+        if (!$post || !in_array($post->post_status, array('draft', 'pending'))) {
+            wp_die(__('Invalid post or post is not in draft/pending status.', 'guest-post-frontend-submitter'));
         }
 
         // Update post status to publish
@@ -315,5 +315,98 @@ class GPFS_Notification {
         );
 
         wp_mail($author_email, $subject, $message, $headers);
+    }
+    /**
+     * Handle post approval via AJAX.
+     *
+     * @since    1.0.0
+     */
+    public function ajax_approve_post() {
+        // Check for nonce
+        if (!isset($_REQUEST['nonce']) || !wp_verify_nonce($_REQUEST['nonce'], 'gpfs_approve_post_' . $_REQUEST['post_id'])) {
+            wp_send_json_error(array('message' => __('Security check failed.', 'guest-post-frontend-submitter')));
+        }
+
+        // Check if post exists
+        $post_id = absint($_REQUEST['post_id']);
+        $post = get_post($post_id);
+        
+        if (!$post || !in_array($post->post_status, array('draft', 'pending'))) {
+            wp_send_json_error(array('message' => __('Invalid post or post is not in draft/pending status.', 'guest-post-frontend-submitter')));
+        }
+
+        // Update post status to publish
+        $updated_post = array(
+            'ID' => $post_id,
+            'post_status' => 'publish'
+        );
+        wp_update_post($updated_post);
+
+        // Send notification to author
+        $author_email = get_post_meta($post_id, '_gpfs_author_email', true);
+        if (!empty($author_email)) {
+            $this->send_author_notification($post_id, 'approved');
+        }
+
+        // Determine redirect URL
+        $redirect = isset($_REQUEST['redirect']) ? $_REQUEST['redirect'] : 'post';
+        
+        if ($redirect === 'dashboard') {
+            $redirect_url = admin_url('index.php');
+        } elseif ($redirect === 'submissions') {
+            $redirect_url = admin_url('admin.php?page=guest-post-submissions');
+        } else {
+            $redirect_url = get_permalink($post_id);
+        }
+
+        wp_send_json_success(array(
+            'message' => __('Post approved successfully.', 'guest-post-frontend-submitter'),
+            'redirect' => $redirect_url
+        ));
+    }
+
+    /**
+     * Handle post rejection via AJAX.
+     *
+     * @since    1.0.0
+     */
+    public function ajax_reject_post() {
+        // Check for nonce
+        if (!isset($_REQUEST['nonce']) || !wp_verify_nonce($_REQUEST['nonce'], 'gpfs_reject_post_' . $_REQUEST['post_id'])) {
+            wp_send_json_error(array('message' => __('Security check failed.', 'guest-post-frontend-submitter')));
+        }
+
+        // Check if post exists
+        $post_id = absint($_REQUEST['post_id']);
+        $post = get_post($post_id);
+        
+        if (!$post) {
+            wp_send_json_error(array('message' => __('Invalid post.', 'guest-post-frontend-submitter')));
+        }
+
+        // Move post to trash
+        wp_trash_post($post_id);
+
+        // Send notification to author
+        $author_email = get_post_meta($post_id, '_gpfs_author_email', true);
+        if (!empty($author_email)) {
+            $this->send_author_notification($post_id, 'rejected');
+        }
+
+        // Determine redirect URL
+        $redirect = isset($_REQUEST['redirect']) ? $_REQUEST['redirect'] : 'posts';
+        
+        if ($redirect === 'dashboard') {
+            $redirect_url = admin_url('index.php');
+        } elseif ($redirect === 'submissions') {
+            $redirect_url = admin_url('admin.php?page=guest-post-submissions');
+        } else {
+            $redirect_url = admin_url('edit.php?post_status=trash&post_type=post');
+        }
+
+        wp_send_json_success(array(
+            'message' => __('Post rejected successfully.', 'guest-post-frontend-submitter'),
+            'redirect' => $redirect_url
+        ));
     }
 }

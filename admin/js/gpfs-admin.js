@@ -197,3 +197,47 @@
     });
 
 })(jQuery);
+    // Handle approve/reject buttons
+    $('.gpfs-approve-button, .gpfs-reject-button').on('click', function(e) {
+        e.preventDefault();
+        
+        const $button = $(this);
+        const url = $button.attr('href');
+        
+        // Show loading state
+        $button.addClass('button-disabled').text($button.hasClass('gpfs-approve-button') ? 'Approving...' : 'Rejecting...');
+        
+        // Make AJAX request
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    // Show success message
+                    alert(response.data.message);
+                    
+                    // Redirect if needed
+                    if (response.data.redirect) {
+                        window.location.href = response.data.redirect;
+                    } else {
+                        // Reload the current page
+                        window.location.reload();
+                    }
+                } else {
+                    // Show error message
+                    alert(response.data.message || 'An error occurred.');
+                    
+                    // Reset button state
+                    $button.removeClass('button-disabled').text($button.hasClass('gpfs-approve-button') ? 'Approve' : 'Reject');
+                }
+            },
+            error: function() {
+                // Show error message
+                alert('An error occurred. Please try again.');
+                
+                // Reset button state
+                $button.removeClass('button-disabled').text($button.hasClass('gpfs-approve-button') ? 'Approve' : 'Reject');
+            }
+        });
+    });

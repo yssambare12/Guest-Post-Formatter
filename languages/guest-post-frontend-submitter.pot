@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Guest Post Frontend Submitter 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/guest-post-frontend-submitter\n"
-"POT-Creation-Date: 2025-06-06 08:13:24+00:00\n"
+"POT-Creation-Date: 2025-06-06 09:24:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: admin/class-gpfs-admin.php:57 admin/class-gpfs-admin.php:58
-#: includes/class-gpfs-core.php:94
+#: includes/class-gpfs-core.php:92
 msgid "Guest Post Submitter"
 msgstr ""
 
@@ -79,11 +79,11 @@ msgstr ""
 #: admin/class-gpfs-admin.php:281 admin/partials/gpfs-admin-display.php:34
 #: admin/partials/gpfs-admin-display.php:43
 #: admin/partials/gpfs-documentation-display.php:119
-#: includes/class-gpfs-core.php:116
+#: includes/class-gpfs-core.php:114
 msgid "General Settings"
 msgstr ""
 
-#: admin/class-gpfs-admin.php:289 includes/class-gpfs-core.php:131
+#: admin/class-gpfs-admin.php:289 includes/class-gpfs-core.php:129
 msgid "Default Category"
 msgstr ""
 
@@ -139,8 +139,8 @@ msgstr ""
 msgid "Configure general settings for guest post submissions."
 msgstr ""
 
-#: admin/class-gpfs-admin.php:472 includes/class-gpfs-react-form.php:164
-#: includes/class-gpfs-shortcode.php:133 includes/class-gpfs-shortcode.php:322
+#: admin/class-gpfs-admin.php:472 includes/class-gpfs-react-form.php:167
+#: includes/class-gpfs-shortcode.php:133 includes/class-gpfs-shortcode.php:326
 msgid "Select a category"
 msgstr ""
 
@@ -183,17 +183,17 @@ msgid ""
 msgstr ""
 
 #: admin/class-gpfs-admin.php:534 admin/partials/email-templates-tab.php:131
-#: includes/class-gpfs-core.php:328 includes/class-gpfs-core.php:365
+#: includes/class-gpfs-core.php:326 includes/class-gpfs-core.php:363
 msgid "Your website name"
 msgstr ""
 
 #: admin/class-gpfs-admin.php:535 admin/partials/email-templates-tab.php:132
-#: includes/class-gpfs-core.php:366
+#: includes/class-gpfs-core.php:364
 msgid "Your website URL"
 msgstr ""
 
 #: admin/class-gpfs-admin.php:536 admin/partials/email-templates-tab.php:133
-#: includes/class-gpfs-core.php:329 includes/class-gpfs-core.php:367
+#: includes/class-gpfs-core.php:327 includes/class-gpfs-core.php:365
 msgid "The submitted post title"
 msgstr ""
 
@@ -202,27 +202,27 @@ msgid "The submitted post content"
 msgstr ""
 
 #: admin/class-gpfs-admin.php:538 admin/partials/email-templates-tab.php:135
-#: includes/class-gpfs-core.php:368
+#: includes/class-gpfs-core.php:366
 msgid "The author's name"
 msgstr ""
 
 #: admin/class-gpfs-admin.php:539 admin/partials/email-templates-tab.php:136
-#: includes/class-gpfs-core.php:369
+#: includes/class-gpfs-core.php:367
 msgid "The author's email"
 msgstr ""
 
 #: admin/class-gpfs-admin.php:540 admin/partials/email-templates-tab.php:137
-#: includes/class-gpfs-core.php:370
+#: includes/class-gpfs-core.php:368
 msgid "The author's bio"
 msgstr ""
 
 #: admin/class-gpfs-admin.php:541 admin/partials/email-templates-tab.php:138
-#: includes/class-gpfs-core.php:371
+#: includes/class-gpfs-core.php:369
 msgid "The date and time of submission"
 msgstr ""
 
 #: admin/class-gpfs-admin.php:542 admin/partials/email-templates-tab.php:139
-#: includes/class-gpfs-core.php:372
+#: includes/class-gpfs-core.php:370
 msgid "Link to edit the post in admin"
 msgstr ""
 
@@ -379,7 +379,7 @@ msgstr ""
 msgid "A success message is displayed to the user"
 msgstr ""
 
-#: admin/partials/admin-display.php:91 includes/class-gpfs-core.php:147
+#: admin/partials/admin-display.php:91 includes/class-gpfs-core.php:145
 msgid "Email Notifications"
 msgstr ""
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Form Style"
 msgstr ""
 
-#: admin/partials/gpfs-admin-display.php:57 includes/class-gpfs-core.php:180
+#: admin/partials/gpfs-admin-display.php:57 includes/class-gpfs-core.php:178
 msgid "Anti-Spam Settings"
 msgstr ""
 
@@ -729,13 +729,13 @@ msgstr ""
 #: admin/partials/gpfs-admin-display.php:333
 #: admin/partials/gpfs-documentation-display.php:86
 #: includes/class-gpfs-react-form.php:85 includes/class-gpfs-shortcode.php:35
-#: includes/class-gpfs-shortcode.php:243
+#: includes/class-gpfs-shortcode.php:247
 msgid "Submit a Guest Post"
 msgstr ""
 
 #: admin/partials/gpfs-admin-display.php:336
-#: includes/class-gpfs-react-form.php:150 includes/class-gpfs-shortcode.php:79
-#: includes/class-gpfs-shortcode.php:308
+#: includes/class-gpfs-react-form.php:153 includes/class-gpfs-shortcode.php:79
+#: includes/class-gpfs-shortcode.php:312
 msgid "Post Title"
 msgstr ""
 
@@ -744,8 +744,8 @@ msgid "Enter post title"
 msgstr ""
 
 #: admin/partials/gpfs-admin-display.php:340
-#: includes/class-gpfs-react-form.php:151 includes/class-gpfs-shortcode.php:85
-#: includes/class-gpfs-shortcode.php:309
+#: includes/class-gpfs-react-form.php:154 includes/class-gpfs-shortcode.php:85
+#: includes/class-gpfs-shortcode.php:313
 msgid "Post Content"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgstr ""
 #: admin/partials/gpfs-admin-display.php:344
 #: admin/partials/gpfs-documentation-display.php:96
 #: includes/class-gpfs-react-form.php:87 includes/class-gpfs-shortcode.php:37
-#: includes/class-gpfs-shortcode.php:245
+#: includes/class-gpfs-shortcode.php:249
 msgid "Submit Post"
 msgstr ""
 
@@ -795,7 +795,7 @@ msgid "Pending Review"
 msgstr ""
 
 #: admin/partials/gpfs-dashboard-display.php:107
-#: includes/class-gpfs-core.php:224
+#: includes/class-gpfs-core.php:222
 msgid "Published"
 msgstr ""
 
@@ -838,13 +838,13 @@ msgstr ""
 
 #: admin/partials/gpfs-dashboard-display.php:169
 #: admin/partials/gpfs-submissions-display.php:104
-#: includes/class-gpfs-core.php:222
+#: includes/class-gpfs-core.php:220
 msgid "Pending"
 msgstr ""
 
 #: admin/partials/gpfs-dashboard-display.php:171
 #: admin/partials/gpfs-submissions-display.php:106
-#: includes/class-gpfs-core.php:223
+#: includes/class-gpfs-core.php:221
 msgid "Draft"
 msgstr ""
 
@@ -1331,83 +1331,83 @@ msgstr ""
 msgid "Guest Post Frontend Submitter"
 msgstr ""
 
-#: includes/class-gpfs-core.php:123
+#: includes/class-gpfs-core.php:121
 msgid "Default Post Status"
 msgstr ""
 
-#: includes/class-gpfs-core.php:140
+#: includes/class-gpfs-core.php:138
 msgid "Email Notification Settings"
 msgstr ""
 
-#: includes/class-gpfs-core.php:155
+#: includes/class-gpfs-core.php:153
 msgid "Notification Email"
 msgstr ""
 
-#: includes/class-gpfs-core.php:163
+#: includes/class-gpfs-core.php:161
 msgid "Email Subject Template"
 msgstr ""
 
-#: includes/class-gpfs-core.php:171
+#: includes/class-gpfs-core.php:169
 msgid "Email Message Template"
 msgstr ""
 
-#: includes/class-gpfs-core.php:187
+#: includes/class-gpfs-core.php:185
 msgid "CAPTCHA Protection"
 msgstr ""
 
-#: includes/class-gpfs-core.php:209
+#: includes/class-gpfs-core.php:207
 msgid "Configure the general settings for the guest post submission form."
 msgstr ""
 
-#: includes/class-gpfs-core.php:226
+#: includes/class-gpfs-core.php:224
 msgid "Select the default status for submitted posts."
 msgstr ""
 
-#: includes/class-gpfs-core.php:242
+#: includes/class-gpfs-core.php:240
 msgid "Select Category"
 msgstr ""
 
-#: includes/class-gpfs-core.php:246
+#: includes/class-gpfs-core.php:244
 msgid "Select the default category for submitted posts."
 msgstr ""
 
-#: includes/class-gpfs-core.php:260
+#: includes/class-gpfs-core.php:258
 msgid "Send email notifications when new guest posts are submitted"
 msgstr ""
 
-#: includes/class-gpfs-core.php:262
+#: includes/class-gpfs-core.php:260
 msgid "Emails include links to approve or reject the submission."
 msgstr ""
 
-#: includes/class-gpfs-core.php:276
+#: includes/class-gpfs-core.php:274
 msgid "Email address to receive notifications. Default is the admin email."
 msgstr ""
 
-#: includes/class-gpfs-core.php:286
+#: includes/class-gpfs-core.php:284
 msgid "Configure email notification settings for guest post submissions."
 msgstr ""
 
-#: includes/class-gpfs-core.php:295
+#: includes/class-gpfs-core.php:293
 msgid "Configure anti-spam settings to protect your form from unwanted submissions."
 msgstr ""
 
-#: includes/class-gpfs-core.php:309
+#: includes/class-gpfs-core.php:307
 msgid "Enable math CAPTCHA to prevent spam submissions"
 msgstr ""
 
-#: includes/class-gpfs-core.php:311
+#: includes/class-gpfs-core.php:309
 msgid "Adds a simple math question that users must answer correctly."
 msgstr ""
 
-#: includes/class-gpfs-core.php:322
+#: includes/class-gpfs-core.php:320
 msgid "[%site_name%] New Guest Post Submission: \"%post_title%\""
 msgstr ""
 
-#: includes/class-gpfs-core.php:327 includes/class-gpfs-core.php:364
+#: includes/class-gpfs-core.php:325 includes/class-gpfs-core.php:362
 msgid "Available placeholders:"
 msgstr ""
 
-#: includes/class-gpfs-core.php:341
+#: includes/class-gpfs-core.php:339
 msgid ""
 "A new guest post has been submitted to your site %site_name%.\n"
 "\n"
@@ -1429,31 +1429,31 @@ msgid ""
 "This email was sent from your website %site_url%."
 msgstr ""
 
-#: includes/class-gpfs-core.php:373
+#: includes/class-gpfs-core.php:371
 msgid "Link to approve the post"
 msgstr ""
 
-#: includes/class-gpfs-core.php:374
+#: includes/class-gpfs-core.php:372
 msgid "Link to reject the post"
 msgstr ""
 
-#: includes/class-gpfs-core.php:453
+#: includes/class-gpfs-core.php:451
 msgid "Invalid file type. Please upload a JPEG, PNG, or GIF image."
 msgstr ""
 
-#: includes/class-gpfs-core.php:454
+#: includes/class-gpfs-core.php:452
 msgid "File is too large. Maximum size is 5MB."
 msgstr ""
 
-#: includes/class-gpfs-core.php:455
+#: includes/class-gpfs-core.php:453
 msgid "Remove image"
 msgstr ""
 
-#: includes/class-gpfs-form-handler.php:25
+#: includes/class-gpfs-form-handler.php:30
 msgid "Security check failed. Please try again."
 msgstr ""
 
-#: includes/class-gpfs-form-handler.php:25
+#: includes/class-gpfs-form-handler.php:30
 msgid "Error"
 msgstr ""
 
@@ -1472,122 +1472,136 @@ msgid "Security check failed. Invalid nonce."
 msgstr ""
 
 #: includes/class-gpfs-notification.php:158
-msgid "Invalid post or post is not in draft status."
+#: includes/class-gpfs-notification.php:335
+msgid "Invalid post or post is not in draft/pending status."
 msgstr ""
 
 #: includes/class-gpfs-notification.php:209
+#: includes/class-gpfs-notification.php:384
 msgid "Invalid post."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:86 includes/class-gpfs-shortcode.php:244
+#: includes/class-gpfs-notification.php:327
+#: includes/class-gpfs-notification.php:376
+msgid "Security check failed."
+msgstr ""
+
+#: includes/class-gpfs-notification.php:363
+msgid "Post approved successfully."
+msgstr ""
+
+#: includes/class-gpfs-notification.php:408
+msgid "Post rejected successfully."
+msgstr ""
+
+#: includes/class-gpfs-react-form.php:86 includes/class-gpfs-shortcode.php:248
 msgid ""
 "Thank you! Your submission has been received. We'll review it and get back "
 "to you soon."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:134 includes/class-gpfs-shortcode.php:177
-#: includes/class-gpfs-shortcode.php:292
+#: includes/class-gpfs-react-form.php:137 includes/class-gpfs-shortcode.php:296
 msgid "What is %d + %d?"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:152 includes/class-gpfs-shortcode.php:105
-#: includes/class-gpfs-shortcode.php:310
+#: includes/class-gpfs-react-form.php:155 includes/class-gpfs-shortcode.php:105
+#: includes/class-gpfs-shortcode.php:314
 msgid "Author Name"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:153 includes/class-gpfs-shortcode.php:111
-#: includes/class-gpfs-shortcode.php:311
+#: includes/class-gpfs-react-form.php:156 includes/class-gpfs-shortcode.php:111
+#: includes/class-gpfs-shortcode.php:315
 msgid "Author Email"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:154 includes/class-gpfs-shortcode.php:117
-#: includes/class-gpfs-shortcode.php:312
+#: includes/class-gpfs-react-form.php:157 includes/class-gpfs-shortcode.php:117
+#: includes/class-gpfs-shortcode.php:316
 msgid "Author Bio"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:155 includes/class-gpfs-shortcode.php:123
-#: includes/class-gpfs-shortcode.php:313
+#: includes/class-gpfs-react-form.php:158 includes/class-gpfs-shortcode.php:123
+#: includes/class-gpfs-shortcode.php:317
 msgid "Post Category"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:156 includes/class-gpfs-shortcode.php:145
-#: includes/class-gpfs-shortcode.php:314
+#: includes/class-gpfs-react-form.php:159 includes/class-gpfs-shortcode.php:145
+#: includes/class-gpfs-shortcode.php:318
 msgid "Excerpt"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:157 includes/class-gpfs-shortcode.php:153
-#: includes/class-gpfs-shortcode.php:315
+#: includes/class-gpfs-react-form.php:160 includes/class-gpfs-shortcode.php:153
+#: includes/class-gpfs-shortcode.php:319
 msgid "Featured Image"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:158 includes/class-gpfs-shortcode.php:176
-#: includes/class-gpfs-shortcode.php:316
+#: includes/class-gpfs-react-form.php:161 includes/class-gpfs-shortcode.php:179
+#: includes/class-gpfs-shortcode.php:320
 msgid "Security Question"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:160 includes/class-gpfs-shortcode.php:318
+#: includes/class-gpfs-react-form.php:163 includes/class-gpfs-shortcode.php:322
 msgid "Submitting..."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:163 includes/class-gpfs-shortcode.php:118
-#: includes/class-gpfs-shortcode.php:321
+#: includes/class-gpfs-react-form.php:166 includes/class-gpfs-shortcode.php:118
+#: includes/class-gpfs-shortcode.php:325
 msgid "Tell us about yourself (optional)"
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:167 includes/class-gpfs-shortcode.php:325
+#: includes/class-gpfs-react-form.php:170 includes/class-gpfs-shortcode.php:329
 msgid "Share a brief bio that will be displayed with your post."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:168 includes/class-gpfs-shortcode.php:326
+#: includes/class-gpfs-react-form.php:171 includes/class-gpfs-shortcode.php:330
 msgid ""
 "A short summary of your post. If left empty, an excerpt will be generated "
 "from your content."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:169 includes/class-gpfs-shortcode.php:155
-#: includes/class-gpfs-shortcode.php:327
+#: includes/class-gpfs-react-form.php:172 includes/class-gpfs-shortcode.php:155
+#: includes/class-gpfs-shortcode.php:331
 msgid ""
 "Upload an image to be used as the featured image for your post. Allowed "
 "formats: JPEG, PNG, GIF."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:179 includes/class-gpfs-shortcode.php:337
+#: includes/class-gpfs-react-form.php:182 includes/class-gpfs-shortcode.php:341
 msgid ""
 "JavaScript is required to use this form. Please enable JavaScript in your "
 "browser settings."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:196 includes/class-gpfs-shortcode.php:214
+#: includes/class-gpfs-react-form.php:199 includes/class-gpfs-shortcode.php:218
 msgid "Please fill in all required fields."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:198 includes/class-gpfs-shortcode.php:216
+#: includes/class-gpfs-react-form.php:201 includes/class-gpfs-shortcode.php:220
 msgid "There was an error submitting your post. Please try again."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:200 includes/class-gpfs-shortcode.php:218
+#: includes/class-gpfs-react-form.php:203 includes/class-gpfs-shortcode.php:222
 msgid "Your submission was flagged as spam. Please try again."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:202 includes/class-gpfs-shortcode.php:220
+#: includes/class-gpfs-react-form.php:205 includes/class-gpfs-shortcode.php:224
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:204 includes/class-gpfs-shortcode.php:222
+#: includes/class-gpfs-react-form.php:207 includes/class-gpfs-shortcode.php:226
 msgid "Please answer the security question."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:206 includes/class-gpfs-shortcode.php:224
+#: includes/class-gpfs-react-form.php:209 includes/class-gpfs-shortcode.php:228
 msgid "The security answer is incorrect. Please try again."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:208 includes/class-gpfs-shortcode.php:226
+#: includes/class-gpfs-react-form.php:211 includes/class-gpfs-shortcode.php:230
 msgid ""
 "You have reached the maximum number of submissions allowed per day. Please "
 "try again tomorrow."
 msgstr ""
 
-#: includes/class-gpfs-react-form.php:210 includes/class-gpfs-shortcode.php:228
+#: includes/class-gpfs-react-form.php:213 includes/class-gpfs-shortcode.php:232
 msgid "An unknown error occurred. Please try again."
 msgstr ""
 
@@ -1597,6 +1611,10 @@ msgstr ""
 
 #: includes/class-gpfs-shortcode.php:47
 msgid "Log in"
+msgstr ""
+
+#: includes/class-gpfs-shortcode.php:180
+msgid "What is %d + %d? (Enter the number %d)"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

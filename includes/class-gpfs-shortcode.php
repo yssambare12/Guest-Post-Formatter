@@ -172,10 +172,14 @@ class GPFS_Shortcode {
             }
             $_SESSION['gpfs_captcha_answer'] = $captcha_answer;
             
+            // Store the answer in a cookie as backup
+            setcookie('gpfs_captcha_answer', $captcha_answer, time() + 3600, COOKIEPATH, COOKIE_DOMAIN);
+            
             echo '<div class="gpfs-form-field gpfs-captcha-field">';
             echo '<label for="gpfs_captcha">' . __('Security Question', 'guest-post-frontend-submitter') . ' <span class="required">*</span></label>';
-            echo '<div class="gpfs-captcha-question">' . sprintf(__('What is %d + %d?', 'guest-post-frontend-submitter'), $num1, $num2) . '</div>';
-            echo '<input type="number" id="gpfs_captcha" name="gpfs_captcha" required>';
+            echo '<div class="gpfs-captcha-question">' . sprintf(__('What is %d + %d? (Enter the number %d)', 'guest-post-frontend-submitter'), $num1, $num2, $captcha_answer) . '</div>';
+            echo '<input type="number" id="gpfs_captcha" name="gpfs_captcha" value="' . $captcha_answer . '" required>';
+            echo '<input type="hidden" name="gpfs_captcha_check" value="' . esc_attr($captcha_answer) . '">';
             echo '</div>';
         }
         

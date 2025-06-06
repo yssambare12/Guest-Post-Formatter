@@ -173,8 +173,8 @@ $submissions_last_30_days = $wpdb->get_var(
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo esc_url($approve_url); ?>" class="button button-small"><?php _e('Approve', 'guest-post-frontend-submitter'); ?></a>
-                                        <a href="<?php echo esc_url($reject_url); ?>" class="button button-small"><?php _e('Reject', 'guest-post-frontend-submitter'); ?></a>
+                                        <a href="<?php echo esc_url($approve_url); ?>" class="button button-small gpfs-approve-button"><?php _e('Approve', 'guest-post-frontend-submitter'); ?></a>
+                                        <a href="<?php echo esc_url($reject_url); ?>" class="button button-small gpfs-reject-button"><?php _e('Reject', 'guest-post-frontend-submitter'); ?></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

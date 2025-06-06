@@ -73,14 +73,12 @@ class GPFS_Core {
         // Initialize notification system
         $notification = new GPFS_Notification();
         $this->loader->add_action('gpfs_after_post_submission', $notification, 'send_admin_notification', 10, 2);
-        $this->loader->add_action('init', $notification, 'approve_post');
-        $this->loader->add_action('init', $notification, 'reject_post');
         
         // Register AJAX handlers for approve/reject actions
-        $this->loader->add_action('wp_ajax_gpfs_approve_post', $notification, 'approve_post');
-        $this->loader->add_action('wp_ajax_nopriv_gpfs_approve_post', $notification, 'approve_post');
-        $this->loader->add_action('wp_ajax_gpfs_reject_post', $notification, 'reject_post');
-        $this->loader->add_action('wp_ajax_nopriv_gpfs_reject_post', $notification, 'reject_post');
+        $this->loader->add_action('wp_ajax_gpfs_approve_post', $notification, 'ajax_approve_post');
+        $this->loader->add_action('wp_ajax_nopriv_gpfs_approve_post', $notification, 'ajax_approve_post');
+        $this->loader->add_action('wp_ajax_gpfs_reject_post', $notification, 'ajax_reject_post');
+        $this->loader->add_action('wp_ajax_nopriv_gpfs_reject_post', $notification, 'ajax_reject_post');
     }
 
     /**
