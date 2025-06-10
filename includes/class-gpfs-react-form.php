@@ -25,8 +25,11 @@ class GPFS_React_Form {
      */
     public function enqueue_scripts() {
         // Only enqueue scripts when the shortcode is present
-        global $post;
-        if (is_a($post, 'WP_Post') && (has_shortcode($post->post_content, 'guest_post_form') || has_shortcode($post->post_content, 'guest_post_react_form'))) {
+        $queried = get_queried_object();
+        if ( $queried instanceof WP_Post &&
+            ( has_shortcode( $queried->post_content, 'guest_post_form' ) ||
+              has_shortcode( $queried->post_content, 'guest_post_react_form' ) )
+        ) {
             // Enqueue React and ReactDOM from CDN
             wp_enqueue_script(
                 'react',
