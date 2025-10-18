@@ -49,7 +49,7 @@ require_once GPFS_PLUGIN_DIR . 'admin/class-gpfs-admin.php';
  * Begins execution of the plugin.
  */
 function run_guest_post_frontend_submitter() {
-    $plugin = new GPFS_Core()
+    $plugin = new GPFS_Core();
     $plugin->run();
     
     // Initialize admin
