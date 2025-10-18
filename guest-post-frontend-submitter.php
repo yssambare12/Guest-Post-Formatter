@@ -3,7 +3,7 @@
  * Plugin Name: Guest Post Frontend Submitter
  * Plugin URI: https://example.com/plugins/guest-post-frontend-submitter
  * Description: Enables front-end guest post submission with a simple shortcode.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Your Name
  * Author URI: https://example.com
  * Text Domain: guest-post-frontend-submitter
