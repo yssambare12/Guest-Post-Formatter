@@ -4,7 +4,7 @@
 
 // Make sure React and ReactDOM are loaded
 const { useState, useEffect, useRef } = React;
-const { createRoot } = ReactDOM;
+const { createRoot } = ReactDOM
 
 /**
  * Main Form Component
