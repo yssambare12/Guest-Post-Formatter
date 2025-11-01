@@ -23,7 +23,7 @@ const GuestPostForm = (props) => {
     featuredImage: null,
     imagePreview: null,
     submitting: false,
-    success: false,
+    success: true,
     errors: {}
   });
 
