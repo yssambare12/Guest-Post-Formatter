@@ -15,7 +15,7 @@ Guest Post Frontend Submitter allows visitors to submit posts from the front-end
 * Email notifications with one-click approve/reject actions
 * Responsive design that works on all devices
 * Lightweight and optimized for performance
-* Developer-friendly with hooks and filters for customization
+* Developer-friendly with hooks and filters for customization.
 
 ## Installation
 
