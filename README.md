@@ -2,7 +2,7 @@
 
 A WordPress plugin that enables front-end guest post submission with a simple shortcode.
 
-## Introduction ..
+## Introduction .
 
 Guest Post Frontend Submitter allows visitors to submit posts from the front-end of your WordPress site. It's perfect for blogs that accept guest contributions, community websites, or any site that wants to encourage user-generated content.
 
